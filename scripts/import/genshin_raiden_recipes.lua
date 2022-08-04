@@ -66,19 +66,73 @@
 local Recipes = {
 
     ---------------------------武器-----------------------------
-	-- {
-    --     name = "element_spear",
-    --     ingredients = 
-    --     {
-	-- 		Ingredient("spear",1),
-    --         Ingredient("nightmarefuel",3),
-    --         Ingredient("livinglog",2)
-    --     },
-    --     level = TECH.MAGIC_TWO,
-    --     atlas = GetInventoryItemAtlas("spear.tex"),
-    --     image = "spear.tex",
-    --     filters = { "WEAPONS", "CHARACTER" },
-    -- },
+	{
+        name = "favoniuslance",
+        ingredients = 
+        {
+			Ingredient("greengem", 1),
+            Ingredient("moonglass", 4),
+            Ingredient("flint", 4)
+        },
+        level = TECH.SCIENCE_TWO,
+        atlas = "images/inventoryimages/favoniuslance.xml",
+        image = "favoniuslance.tex",
+        filters = { "WEAPONS", "CHARACTER" },
+    },
+    {
+        name = "thecatch",
+        ingredients = 
+        {
+			Ingredient("oceanfish_medium_1_inv", 6),
+            Ingredient("oceanfish_small_2_inv", 8)
+        },
+        level = TECH.SCIENCE_TWO,
+        atlas = "images/inventoryimages/thecatch.xml",
+        image = "thecatch.tex",
+        filters = { "WEAPONS", "CHARACTER" },
+    },
+    {
+        name = "ako_sake_vessel",
+        ingredients = 
+        {
+			Ingredient("oceanfish_small_1_inv", 4),
+            Ingredient("oceanfish_small_4_inv", 4),
+            Ingredient("oceanfish_small_5_inv", 4),
+        },
+        level = TECH.SCIENCE_TWO,
+        atlas = "images/inventoryimages/ako_sake_vessel.xml",
+        image = "ako_sake_vessel.tex",
+        filters = { "WEAPONS", "CHARACTER" },
+    },
+    {
+        name = "engulfinglightning",
+        ingredients = 
+        {
+			Ingredient("purplegem", 10),
+            Ingredient("moonrocknugget", 20),
+            Ingredient("amakumo_fruit", 40, "images/inventoryimages/amakumo_fruit.xml"),
+        },
+        level = TECH.LOST,
+        atlas = "images/inventoryimages/engulfinglightning.xml",
+        image = "engulfinglightning.tex",
+        filters = { "WEAPONS", "CHARACTER" },
+    },
+
+    ---------------------------精炼-----------------------------
+    --命之座
+    {
+        name = "raiden_constellation_star",
+        ingredients = 
+        {
+			Ingredient("opalpreciousgem", 1),
+            Ingredient("purplegem", 1),
+            Ingredient("amakumo_fruit", 10, "images/inventoryimages/amakumo_fruit.xml")
+        },
+        level = TECH.LOST,
+        atlas = "images/inventoryimages/raiden_constellation_star.xml",
+        image = "raiden_constellation_star.tex",
+        filters = { "REFINE", "CHARACTER" },
+    },
 
     ---------------------------工具-----------------------------
 	{

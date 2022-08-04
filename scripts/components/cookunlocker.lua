@@ -83,17 +83,17 @@ function CookUnlocker:CanUnlock(cooker_type, level)
     end
 
     if cooker_type == 1 then
-        if level > 4 or level < 1 then
-            return false, "invalid_level"
-        elseif self.firepit_level == 4 then
+        if self.firepit_level == 4 then
             return false, "max_level"
+        elseif level > 4 or level < 1 then
+            return false, "invalid_level"
         end
         return level == self.firepit_level + 1, "error_order"
     elseif cooker_type == 2 then
-        if level > 4 or level < 1 then
-            return false, "invalid_level"
-        elseif self.cookpot_level == 4 then
+        if self.cookpot_level == 4 then
             return false, "max_level"
+        elseif level > 4 or level < 1 then
+            return false, "invalid_level"
         end
         return level == self.cookpot_level + 1 and level <= self.firepit_level, "error_order"
     elseif cooker_type == 3 then

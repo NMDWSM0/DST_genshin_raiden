@@ -261,6 +261,7 @@ if TUNING.LANGUAGE_GENSHIN_RAIDEN == "sc" then
     --物品描述
     STRINGS.NAMES.ENGULFINGLIGHTNING = "薙草之稻光"
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.ENGULFINGLIGHTNING = "用于【斩草】的薙刀。对向此物之军势,也会如苇草般倒下吧..."
+    STRINGS.RECIPE_DESC.ENGULFINGLIGHTNING = "用于【斩草】的薙刀"
 	TUNING.WEAPONEFFECT_ENGULFINGLIGHTNING = {
         "非时之梦•常世灶食\n•攻击力获得提升,提升程度相当于元素充能效率超出100%部分的28%,至多通过这种方式提升80%。施放元素爆发后的12秒内,元素充能效率提升30%。",
         "非时之梦•常世灶食\n•攻击力获得提升,提升程度相当于元素充能效率超出100%部分的35%,至多通过这种方式提升90%。施放元素爆发后的12秒内,元素充能效率提升35%。",
@@ -271,6 +272,7 @@ if TUNING.LANGUAGE_GENSHIN_RAIDEN == "sc" then
 
     STRINGS.NAMES.FAVONIUSLANCE = "西风长枪"
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.FAVONIUSLANCE = "西风骑士团的制式长枪。枪杆直挺，枪尖轻风流溢。"
+    STRINGS.RECIPE_DESC.FAVONIUSLANCE = "西风骑士团的制式长枪"
 	TUNING.WEAPONEFFECT_FAVONIUSLANCE = {
         "顺风而行\n•攻击造成暴击时，有60%的概率产生少量元素微粒。能为角色恢复6点元素能量。该效果每12秒只能触发一次。",
         "顺风而行\n•攻击造成暴击时，有70%的概率产生少量元素微粒。能为角色恢复6点元素能量。该效果每10.5秒只能触发一次。",
@@ -281,6 +283,7 @@ if TUNING.LANGUAGE_GENSHIN_RAIDEN == "sc" then
 
     STRINGS.NAMES.THECATCH = "【渔获】"
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.THECATCH = "在久远的过去，曾经闻名稻妻的大盗爱用的枪。"
+    STRINGS.RECIPE_DESC.THECATCH = "在久远的过去，曾经闻名稻妻的大盗爱用的枪"
 	TUNING.WEAPONEFFECT_THECATCH = {
         "船歌\n•元素爆发造成的伤害提升16%，元素爆发的暴击率提升6%。",
         "船歌\n•元素爆发造成的伤害提升20%，元素爆发的暴击率提升7.5%。",
@@ -288,9 +291,16 @@ if TUNING.LANGUAGE_GENSHIN_RAIDEN == "sc" then
         "船歌\n•元素爆发造成的伤害提升28%，元素爆发的暴击率提升10.5%。",
         "船歌\n•元素爆发造成的伤害提升32%，元素爆发的暴击率提升12%。",
     }
+    STRINGS.NAMES.AKO_SAKE_VESSEL = "赤穗酒枡"
+    STRINGS.CHARACTERS.GENERIC.DESCRIBE.AKO_SAKE_VESSEL = "过去称霸清籁地方的赤穗百目鬼一众爱用的酒具"
+    STRINGS.RECIPE_DESC.AKO_SAKE_VESSEL = "【渔获】专用的精炼道具"
 
     STRINGS.NAMES.RAIDEN_CONSTELLATION_STAR = "雷电将军的命星"
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.RAIDEN_CONSTELLATION_STAR = "雷电将军的命之座激活素材"
+    STRINGS.RECIPE_DESC.RAIDEN_CONSTELLATION_STAR = "雷电将军的命之座激活素材"
+
+    STRINGS.NAMES.CROWN_OF_INSIGHT = "智识之冕"
+    STRINGS.CHARACTERS.GENERIC.DESCRIBE.CROWN_OF_INSIGHT = "提升天赋所需的珍贵素材。"
 
     STRINGS.NAMES.BOOK_FIREPIT = "异世界厨神的烤制教学"
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.BOOK_FIREPIT = "有种神秘的力量，能教会人做饭，甚至还能感受到一丝雷元素？"
@@ -309,8 +319,6 @@ if TUNING.LANGUAGE_GENSHIN_RAIDEN == "sc" then
 
     STRINGS.NAMES.AMAKUMO_GRASS = "天云草"
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.AMAKUMO_GRASS = "原本生长在天云峠的植物，不知为什么出现在了这里。"
-
-    STRINGS.NAMES.SPICE_AMAKUMO_BLUEPRINT = "天云草实粉蓝图"
 
 else
     --基本描述
@@ -486,41 +494,41 @@ else
     STRINGS.CHARACTERS.RAIDEN_SHOGUN.ACTIONFAIL.COOK = "Don't try and get me to cook. I can take care of anything else, but not that."
 
     STRINGS.RAIDEN_FIREPIT_LEVEL_UPGRADE = {
-        "好吧，我答应尝试一下那堆火。",
-        "在我看来，火焰应该变得更加听话一点。",
-        "感觉烤制食物，有时候也没有那么难...",
-        "现在我能感觉火焰的魔力了，真该感谢写下这本书的人呢。",
+        "OK, I'll try the fire later.",
+        "Flames should be more domestic.",
+        "Sometimes I even consider roasting to be not that hard...",
+        "It's miraculous when I control the flames.Thanks to who write this book.",
     }
 
     STRINGS.RAIDEN_COOKPOT_LEVEL_UPGRADE = {
-        "使用锅这种事情，需要极大的决心和勇气。",
-        "做饭什么的，确实比武斗困难许多。",
-        "虽然有时也会失误，但是我感觉料理的知识正在逐渐丰富呢。",
-        "今后，可以自己做想吃的甜点心了，真是值得纪念的一天。",
+        "Using cookpot requires determination and bravery.",
+        "Cooking is pretty harder than Fighting, in my opinion.",
+        "The knowledge of cooking is becoming plentiful regardless of some accidental mistakes",
+        "I can bake my favorite desserts by myself from no on.What a memorial day.",
     }
 
     STRINGS.RAIDEN_SPICER_LEVEL_UPGRADE = {
-        "如此神奇的一整套料理教程，究竟是谁的力量呢？希望有一天能见过这位前辈呢。",
+        "These are a set of miraculous cooking courses.Who onearth is the author?I wish I can visit this senior some day.",
     }
 
-    STRINGS.RAIDEN_COOK_RAW = "这份，没熟透。"
+    STRINGS.RAIDEN_COOK_RAW = "It's raw..."
 
-    STRINGS.RAIDEN_COOK_BURNT = "看来用力过猛了。"
+    STRINGS.RAIDEN_COOK_BURNT = "I accidentally overcook it."
 
-    STRINGS.RAIDEN_STEW_FAIL = "嗯，技巧上还有点小问题。"
+    STRINGS.RAIDEN_STEW_FAIL = "Eh, there're some questions in the skill."
 
-    STRINGS.RAIDEN_STEW_EXPLODE = "啊，怎么又这样，一定是mhy干的乆乆乆"
+    STRINGS.RAIDEN_STEW_EXPLODE = "Oh, why does this happen so frequently!"
 
     STRINGS.USE_RAIDENCOOKBOOK_FAIL = {
-        IS_STUDYING = "我正在向书中的异界厨神学习其他技能。",
+        IS_STUDYING = "I'm learning other skills from the professional chef from other world.",
         INVALID_LEVEL = "invalid_level_to_unlock",
-        MAX_LEVEL = "厨神说在这方面她已经没有能教给我的了",
-        ERROR_ORDER = "异界的厨神说我现在还不能学习那个技能。",
+        MAX_LEVEL = "The professional chef have nothing to teach me in this field now.",
+        ERROR_ORDER = "She says that I'm not qualified to learn that now.",
     }
 
-    STRINGS.USE_RAIDENCOOKBOOK_SUCCEED = "感受到一股力量，她想要教会我料理。"
+    STRINGS.USE_RAIDENCOOKBOOK_SUCCEED = "I can feel someone want to teach me cooking."
 
-    STRINGS.RAIDENCOOKBOOK_TIMEOVER = "书给予我的力量衰弱了，我也许应该再读读它。"
+    STRINGS.RAIDENCOOKBOOK_TIMEOVER = "Power from the book has weakened, I should read that book again."
 
     TUNING.GENSHIN_ACTION_READCOOKBOOK = "Read"
 
@@ -550,6 +558,7 @@ else
     --物品描述
     STRINGS.NAMES.ENGULFINGLIGHTNING = "Engulfing Lightning"
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.ENGULFINGLIGHTNING = "A naginata used to \"cut grass.\" Any army that stands before this weapon will probably be likewise cut down..."
+    STRINGS.RECIPE_DESC.ENGULFINGLIGHTNING = "A naginata used to \"cut grass.\""
 	TUNING.WEAPONEFFECT_ENGULFINGLIGHTNING = {
         "Timeless Dream:Eternal Stove\n•ATK increased by 28% of Energy Recharge over the base 100%.You can gain a maximum bonus of 80% ATK.Gain 30% Energy Recharge for 12s after using an Elemental Burst.",
         "Timeless Dream:Eternal Stove\n•ATK increased by 35% of Energy Recharge over the base 100%.You can gain a maximum bonus of 90% ATK.Gain 35% Energy Recharge for 12s after using an Elemental Burst.",
@@ -560,6 +569,7 @@ else
 
     STRINGS.NAMES.FAVONIUSLANCE = "Favonius Lance"
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.FAVONIUSLANCE = "A polearm made in the style of the Knights of Favonius. Its shaft is straight, and its tip flows lightlty like the wind."
+    STRINGS.RECIPE_DESC.FAVONIUSLANCE = "A polearm made in the style of the Knights of Favonius"
 	TUNING.WEAPONEFFECT_FAVONIUSLANCE = {
         "Windfall\n•CRIT Hits have a 60% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character.Can only occur once every 12s.",
         "Windfall\n•CRIT Hits have a 70% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character.Can only occur once every 10.5s.",
@@ -570,6 +580,7 @@ else
 
     STRINGS.NAMES.THECATCH = "\"The Catch\""
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.THECATCH = "In the distant past, this was the beloved spear of a famed Inazuman bandit."
+    STRINGS.RECIPE_DESC.THECATCH = "The beloved spear of a famed Inazuman bandit"
 	TUNING.WEAPONEFFECT_THECATCH = {
         "Shanty\n•Increases Elemental Burst DMG by 16% and Elemental Burst CRIT Rate by 6%.",
         "Shanty\n•Increases Elemental Burst DMG by 20% and Elemental Burst CRIT Rate by 7.5%.",
@@ -577,28 +588,33 @@ else
         "Shanty\n•Increases Elemental Burst DMG by 28% and Elemental Burst CRIT Rate by 10.5%.",
         "Shanty\n•Increases Elemental Burst DMG by 32% and Elemental Burst CRIT Rate by 12%.",
     }
+    STRINGS.NAMES.AKO_SAKE_VESSEL = "Ako’s Sake Vessel"
+    STRINGS.CHARACTERS.GENERIC.DESCRIBE.AKO_SAKE_VESSEL = "This was the favored liquor vessel of Ako Domeki,who once ruled over the Seirai region."
+    STRINGS.RECIPE_DESC.AKO_SAKE_VESSEL = "Specialized refinement material for “The Catch.”"
 
     STRINGS.NAMES.RAIDEN_CONSTELLATION_STAR = "Raiden Shogun's Stella Fortuna"
-    STRINGS.CHARACTERS.GENERIC.DESCRIBE.RAIDEN_CONSTELLATION_STAR = "Raiden Shogun's Constellation Activation Material"
+    STRINGS.CHARACTERS.GENERIC.DESCRIBE.RAIDEN_CONSTELLATION_STAR = "Raiden Shogun's Constellation Activation Material."
+    STRINGS.RECIPE_DESC.RAIDEN_CONSTELLATION_STAR = "Raiden Shogun's Constellation Activation Material"
 
-    STRINGS.NAMES.BOOK_FIREPIT = "异世界厨神的烤制教学"
-    STRINGS.CHARACTERS.GENERIC.DESCRIBE.BOOK_FIREPIT = "有种神秘的力量，能教会人做饭，甚至还能感受到一丝雷元素？"
-    STRINGS.RECIPE_DESC.BOOK_FIREPIT = "制作一本能教人烤制的书"
+    STRINGS.NAMES.CROWN_OF_INSIGHT = "Crown of Insight"
+    STRINGS.CHARACTERS.GENERIC.DESCRIBE.CROWN_OF_INSIGHT = "A precious Talent Level-Up material."
 
-    STRINGS.NAMES.BOOK_COOKPOT = "异世界厨神的炉灶教学"
-    STRINGS.CHARACTERS.GENERIC.DESCRIBE.BOOK_COOKPOT = "有种神秘的力量，能教会人做饭，甚至还能感受到一丝雷元素？"
-    STRINGS.RECIPE_DESC.BOOK_COOKPOT = "制作一本能教人使用炉灶的书"
+    STRINGS.NAMES.BOOK_FIREPIT = "Course of Roasting"
+    STRINGS.CHARACTERS.GENERIC.DESCRIBE.BOOK_FIREPIT = "Have a miraculous power.Teach readers cooking.And can even feel Electro element?"
+    STRINGS.RECIPE_DESC.BOOK_FIREPIT = "Craft a book to teach readers roasting"
 
-    STRINGS.NAMES.BOOK_SPICER = "异世界厨神的香料教学"
-    STRINGS.CHARACTERS.GENERIC.DESCRIBE.BOOK_SPICER = "有种神秘的力量，能教会人做饭，甚至还能感受到一丝雷元素？"
-    STRINGS.RECIPE_DESC.BOOK_SPICER = "制作一本能教人调和香料的书"
+    STRINGS.NAMES.BOOK_COOKPOT = "Course of Cooking"
+    STRINGS.CHARACTERS.GENERIC.DESCRIBE.BOOK_COOKPOT = "Have a miraculous power.Teach readers cooking.And can even feel Electro element?"
+    STRINGS.RECIPE_DESC.BOOK_COOKPOT = "Craft a book to teach readers cooking"
+
+    STRINGS.NAMES.BOOK_SPICER = "Course of Spicing"
+    STRINGS.CHARACTERS.GENERIC.DESCRIBE.BOOK_SPICER = "Have a miraculous power.Teach readers cooking.And can even feel Electro element?"
+    STRINGS.RECIPE_DESC.BOOK_SPICER = "Craft a book to teach readers spicing"
 
     STRINGS.NAMES.AMAKUMO_FRUIT = "Amakumo Fruit"
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.AMAKUMO_FRUIT = "The fruit of the Amakumo Grass.Can hear it crackling with a tiny current if hold it up to the ear."
 
     STRINGS.NAMES.AMAKUMO_GRASS = "Amakumo Grass"
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.AMAKUMO_GRASS = "A plant originally grows in Amakumo Peak.It appears here due to some unknown reasons."
-
-    STRINGS.NAMES.SPICE_AMAKUMO_BLUEPRINT = "The bluprint of Amakumo Spice."
 
 end

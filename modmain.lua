@@ -27,6 +27,10 @@ PrefabFiles = {
     "raiden_constellation_star",
     "raiden_cookbooks",
     "ako_sake_vessel",
+    "crown_of_insight",
+
+    --蓝图
+    "raiden_blueprints",
 
     --技能召唤物
     "eye_stormy_judge",
@@ -53,20 +57,23 @@ Assets = {
 
 --------------------------------------------------------------------
     --制作
-    Asset("IMAGE", "images/inventoryimages/book_firepit.tex"),
-    Asset("ATLAS", "images/inventoryimages/book_firepit.xml"),
+    Asset( "IMAGE", "images/inventoryimages/book_firepit.tex" ),
+    Asset( "ATLAS", "images/inventoryimages/book_firepit.xml" ),
 
-    Asset("IMAGE", "images/inventoryimages/book_cookpot.tex"),
-    Asset("ATLAS", "images/inventoryimages/book_cookpot.xml"),
+    Asset( "IMAGE", "images/inventoryimages/book_cookpot.tex" ),
+    Asset( "ATLAS", "images/inventoryimages/book_cookpot.xml" ),
 
-    Asset("IMAGE", "images/inventoryimages/book_spicer.tex"),
-    Asset("ATLAS", "images/inventoryimages/book_spicer.xml"),
+    Asset( "IMAGE", "images/inventoryimages/book_spicer.tex" ),
+    Asset( "ATLAS", "images/inventoryimages/book_spicer.xml" ),
 
     Asset( "IMAGE", "images/inventoryimages/amakumo_fruit.tex" ),
     Asset( "ATLAS", "images/inventoryimages/amakumo_fruit.xml" ),
 
     Asset( "IMAGE", "images/inventoryimages/ako_sake_vessel.tex" ),
     Asset( "ATLAS", "images/inventoryimages/ako_sake_vessel.xml" ),
+
+    Asset( "IMAGE", "images/inventoryimages/crown_of_insight.tex" ),
+    Asset( "ATLAS", "images/inventoryimages/crown_of_insight.xml" ),
 
 --------------------------------------------------------------------
     --小地图
@@ -182,7 +189,7 @@ TUNING.ELEMENTALBURST_KEY = GetModConfigData("key_elementalburst")
 
 TUNING.ELEMENTALSKILL_KEY = GetModConfigData("key_elementalskill")
 
-TUNING.LANGUAGE_GENSHIN_RAIDEN = GetModConfigData("language")
+TUNING.LANGUAGE_GENSHIN_RAIDEN = TUNING.LANGUAGE_GENSHIN_CORE
 
 TUNING.AMAKUMOGRASS_REGROWTH_TIME_MULT = GetModConfigData("amakumo_grass_regrowth")
 
@@ -321,8 +328,12 @@ TUNING.RAIDEN_TALENTS_INGREDIENTS =
     {Ingredient("amakumo_fruit", 12, "images/inventoryimages/amakumo_fruit.xml"), Ingredient("purplegem", 3), Ingredient("goldnugget", 6)},  --6~7
     {Ingredient("amakumo_fruit", 15, "images/inventoryimages/amakumo_fruit.xml"), Ingredient("purplegem", 4), Ingredient("goldnugget", 7)},  --7~8
     {Ingredient("amakumo_fruit", 20, "images/inventoryimages/amakumo_fruit.xml"), Ingredient("purplegem", 4), Ingredient("goldnugget", 8)},  --8~9
-    {Ingredient("amakumo_fruit", 30, "images/inventoryimages/amakumo_fruit.xml"), Ingredient("purplegem", 5), Ingredient("goldnugget", 9)--[[王冠]] },  --9~10
+    {Ingredient("amakumo_fruit", 30, "images/inventoryimages/amakumo_fruit.xml"), Ingredient("purplegem", 5), Ingredient("goldnugget", 9), Ingredient("crown_of_insight", 1, "images/inventoryimages/crown_of_insight.xml")},  --9~10
 }
+
+table.insert(TUNING.POLEARM_WEAPONS, "thecatch")
+table.insert(TUNING.POLEARM_WEAPONS, "favoniuslance")
+table.insert(TUNING.POLEARM_WEAPONS, "engulfinglightning")
 
 ----------------------------------------------------
 ----------------------  ------------------------
@@ -374,6 +385,8 @@ modimport("scripts/import/cook_postinit.lua")
 modimport("scripts/import/cursable_postinit.lua")
 
 modimport("scripts/import/regrowthmanager_postinit.lua")
+
+modimport("scripts/import/crownloot_prefabpostinit.lua")
 
 --------------------------------------
 
