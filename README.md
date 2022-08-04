@@ -1,2 +1,2 @@
-# DST_genshin_core
-The Repository of DST MOD "Element Reaction"
+# DST_genshin_raiden
+The Repository of DST MOD "Raiden Shogun"
