@@ -122,6 +122,8 @@ local function fn()
     inst.components.equippable:SetOnEquip(onequip)
     inst.components.equippable:SetOnUnequip(onunequip)
 
+    inst:AddComponent("refineable")
+
     inst:AddComponent("timer")
     inst:ListenForEvent("animover", newanimation)
 

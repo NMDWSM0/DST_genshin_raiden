@@ -550,15 +550,33 @@ else
     --物品描述
     STRINGS.NAMES.ENGULFINGLIGHTNING = "Engulfing Lightning"
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.ENGULFINGLIGHTNING = "A naginata used to \"cut grass.\" Any army that stands before this weapon will probably be likewise cut down..."
-	TUNING.WEAPONEFFECT_ENGULFINGLIGHTNING = "Timeless Dream:Eternal Stove\n•ATK increased by 28% of Energy Recharge over the base 100%.You can gain a maximum bonus of 80% ATK.Gain 30% Energy Recharge for 12s after using an Elemental Burst."
+	TUNING.WEAPONEFFECT_ENGULFINGLIGHTNING = {
+        "Timeless Dream:Eternal Stove\n•ATK increased by 28% of Energy Recharge over the base 100%.You can gain a maximum bonus of 80% ATK.Gain 30% Energy Recharge for 12s after using an Elemental Burst.",
+        "Timeless Dream:Eternal Stove\n•ATK increased by 35% of Energy Recharge over the base 100%.You can gain a maximum bonus of 90% ATK.Gain 35% Energy Recharge for 12s after using an Elemental Burst.",
+        "Timeless Dream:Eternal Stove\n•ATK increased by 42% of Energy Recharge over the base 100%.You can gain a maximum bonus of 100% ATK.Gain 40% Energy Recharge for 12s after using an Elemental Burst.",
+        "Timeless Dream:Eternal Stove\n•ATK increased by 49% of Energy Recharge over the base 100%.You can gain a maximum bonus of 110% ATK.Gain 45% Energy Recharge for 12s after using an Elemental Burst.",
+        "Timeless Dream:Eternal Stove\n•ATK increased by 56% of Energy Recharge over the base 100%.You can gain a maximum bonus of 120% ATK.Gain 50% Energy Recharge for 12s after using an Elemental Burst.",
+    }
 
     STRINGS.NAMES.FAVONIUSLANCE = "Favonius Lance"
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.FAVONIUSLANCE = "A polearm made in the style of the Knights of Favonius. Its shaft is straight, and its tip flows lightlty like the wind."
-	TUNING.WEAPONEFFECT_FAVONIUSLANCE = "Windfall\n•CRIT Hits have a 100% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character.Can only occur once every 6s."
+	TUNING.WEAPONEFFECT_FAVONIUSLANCE = {
+        "Windfall\n•CRIT Hits have a 60% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character.Can only occur once every 12s.",
+        "Windfall\n•CRIT Hits have a 70% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character.Can only occur once every 10.5s.",
+        "Windfall\n•CRIT Hits have a 80% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character.Can only occur once every 9s.",
+        "Windfall\n•CRIT Hits have a 90% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character.Can only occur once every 7.5s.",
+        "Windfall\n•CRIT Hits have a 100% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character.Can only occur once every 6s.",
+    }
 
     STRINGS.NAMES.THECATCH = "\"The Catch\""
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.THECATCH = "In the distant past, this was the beloved spear of a famed Inazuman bandit."
-	TUNING.WEAPONEFFECT_THECATCH = "Shanty\n•Increases Elemental Burst DMG by 32% and Elemental Burst CRIT Rate by 12%."
+	TUNING.WEAPONEFFECT_THECATCH = {
+        "Shanty\n•Increases Elemental Burst DMG by 16% and Elemental Burst CRIT Rate by 6%.",
+        "Shanty\n•Increases Elemental Burst DMG by 20% and Elemental Burst CRIT Rate by 7.5%.",
+        "Shanty\n•Increases Elemental Burst DMG by 24% and Elemental Burst CRIT Rate by 9%.",
+        "Shanty\n•Increases Elemental Burst DMG by 28% and Elemental Burst CRIT Rate by 10.5%.",
+        "Shanty\n•Increases Elemental Burst DMG by 32% and Elemental Burst CRIT Rate by 12%.",
+    }
 
     STRINGS.NAMES.RAIDEN_CONSTELLATION_STAR = "Raiden Shogun's Stella Fortuna"
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.RAIDEN_CONSTELLATION_STAR = "Raiden Shogun's Constellation Activation Material"

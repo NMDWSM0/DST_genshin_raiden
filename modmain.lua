@@ -26,6 +26,7 @@ PrefabFiles = {
     --其它物品
     "raiden_constellation_star",
     "raiden_cookbooks",
+    "ako_sake_vessel",
 
     --技能召唤物
     "eye_stormy_judge",
@@ -63,6 +64,9 @@ Assets = {
 
     Asset( "IMAGE", "images/inventoryimages/amakumo_fruit.tex" ),
     Asset( "ATLAS", "images/inventoryimages/amakumo_fruit.xml" ),
+
+    Asset( "IMAGE", "images/inventoryimages/ako_sake_vessel.tex" ),
+    Asset( "ATLAS", "images/inventoryimages/ako_sake_vessel.xml" ),
 
 --------------------------------------------------------------------
     --小地图

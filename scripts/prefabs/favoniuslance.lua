@@ -108,6 +108,8 @@ local function fn()
 
     inst:AddComponent("rechargeable")
 
+    inst:AddComponent("refineable")
+
     inst.playerhitother = function(player, data) CheckCrit(inst, player, data) end
 
     return inst

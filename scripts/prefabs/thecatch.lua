@@ -89,6 +89,10 @@ local function fn()
     inst.components.equippable:SetOnEquip(onequip)
     inst.components.equippable:SetOnUnequip(onunequip)
 
+    inst:AddComponent("refineable")
+    inst.components.refineable.ingredient = "ako_sake_vessel"
+    inst.components.refineable.overrideimage = "ako_sake_vessel"
+    inst.components.refineable.overrideatlas = "images/inventoryimages/ako_sake_vessel.xml"
 
     return inst
 end
