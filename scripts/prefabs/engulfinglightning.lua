@@ -13,7 +13,7 @@ local function UpdateATKModifier(inst, player)
         return
     end
     local rechargeover100 = player.components.energyrecharge:GetEnergyRecharge() - 1
-    local atkup = math.max(math.min(TUNING.ENGULFINGLIGHTNING_ATKUP_RATE * rechargeover100, TUNING.ENGULFINGLIGHTNING_ATKUP_MAX), 0)
+    local atkup = math.max(math.min(TUNING.ENGULFINGLIGHTNING_ATKUP_RATE[inst.components.refineable:GetCurrentLevel()] * rechargeover100, TUNING.ENGULFINGLIGHTNING_ATKUP_MAX[inst.components.refineable:GetCurrentLevel()]), 0)
     player.components.combat.external_atk_multipliers:SetModifier(inst, atkup, "all_engulfinglightning_base")
 end
 
@@ -21,7 +21,7 @@ local function UpdateRechargeModifier(inst, player)
     if not player.components.energyrecharge then
         return
     end
-    player.components.energyrecharge:SetModifier(inst, TUNING.ENGULFINGLIGHTNING_RECHARGEUP, "all_engulfinglightning_eleburstcasted")
+    player.components.energyrecharge:SetModifier(inst, TUNING.ENGULFINGLIGHTNING_RECHARGEUP[inst.components.refineable:GetCurrentLevel()], "all_engulfinglightning_eleburstcasted")
     player:DoTaskInTime(12, function(player)
         player.components.energyrecharge:RemoveModifier(inst, "all_engulfinglightning_eleburstcasted")
     end)

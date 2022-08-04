@@ -16,8 +16,8 @@ local function onequip(inst, owner)
     if owner.components.energyrecharge then
         owner.components.energyrecharge:SetModifier(inst, 0.459, "all_thecatch_base")
     end
-    owner.components.combat.external_critical_rate_multipliers:SetModifier(inst, TUNING.THCATCH_CRIT_RATE, "thecatch_eleburst", { atk_key = "elementalburst" })
-    owner.components.combat.external_attacktype_multipliers:SetModifier(inst, TUNING.THECATCH_ELEBURST_BONUS, "thecatch_eleburst", { atk_key = "elementalburst" })
+    owner.components.combat.external_critical_rate_multipliers:SetModifier(inst, TUNING.THCATCH_CRIT_RATE[inst.components.refineable:GetCurrentLevel()], "thecatch_eleburst", { atk_key = "elementalburst" })
+    owner.components.combat.external_attacktype_multipliers:SetModifier(inst, TUNING.THECATCH_ELEBURST_BONUS[inst.components.refineable:GetCurrentLevel()], "thecatch_eleburst", { atk_key = "elementalburst" })
 end
 
 local function onunequip(inst, owner)

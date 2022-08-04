@@ -254,8 +254,7 @@ local function elementalburst_exitfn(inst)
 
 	inst:RemoveTag("stronggrip")
 	inst.components.combat:SetRange(TUNING.DEFAULT_ATTACK_RANGE)
-
-	
+	inst.components.inventory.isexternallyinsulated:RemoveModifier(inst)
 
 	local item = inst.replica.inventory:GetEquippedItem(EQUIPSLOTS.HANDS)
 	if item ~= nil and item.components.equippable then
@@ -287,6 +286,7 @@ local function elementalburstfn(inst)
 
 	inst.burststate = true
 	SetVisionMode(inst, inst.burststate)
+	inst.components.inventory.isexternallyinsulated:SetModifier(inst, true)
 	inst._burststate:set(true)
 	inst.resolve_stack = TakeChakraStack(inst)
 	inst.exittask = inst:DoTaskInTime(TUNING.RAIDENSKILL_ELEBURST.DURATION + 2, elementalburst_exitfn)

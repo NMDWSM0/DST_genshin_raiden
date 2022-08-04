@@ -12,7 +12,7 @@ local function CheckCrit(inst, player, data)
         return
     end
 
-    if math.random() > TUNING.FAVONIUSLANCE_TRIGGER_RATE then
+    if math.random() > TUNING.FAVONIUSLANCE_TRIGGER_RATE[inst.components.refineable:GetCurrentLevel()] then
         return
     end
 
@@ -23,7 +23,7 @@ local function CheckCrit(inst, player, data)
     if player.components.energyrecharge then
         player.components.energyrecharge:GainEnergy(6)
     end
-    inst.components.rechargeable:Discharge(TUNING.FAVONIUSLANCE_EFFECT_CD)
+    inst.components.rechargeable:Discharge(TUNING.FAVONIUSLANCE_EFFECT_CD[inst.components.refineable:GetCurrentLevel()])
 end
 
 ---------------------------------------------------------------------------------
@@ -44,7 +44,7 @@ local function onunequip(inst, owner)
     if owner.components.energyrecharge then
         owner.components.energyrecharge:RemoveModifier(inst)
     end
-    inst:RemoveEventCallback("damagecalculated", inst.playerhitother)
+    inst:RemoveEventCallback("damagecalculated", inst.playerhitother, owner)
 end
 
 ---------------------------------------------------------------------------------
