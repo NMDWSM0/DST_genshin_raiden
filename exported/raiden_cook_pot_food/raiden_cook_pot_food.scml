@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r7">
+    <folder id="0" name="adjudicatetime">
+        <file id="0" name="adjudicatetime/adjudicatetime-0.png" width="192" height="192" pivot_x="0.5" pivot_y="0.203125"/>
+    </folder>
+    <folder id="1" name="dangomilk">
+        <file id="0" name="dangomilk/dangomilk-0.png" width="98" height="154" pivot_x="0.479592" pivot_y="0.076883"/>
+    </folder>
+    <folder id="2" name="rainbowaster">
+        <file id="0" name="rainbowaster/rainbowaster-0.png" width="95" height="154" pivot_x="0.505263" pivot_y="0.076364"/>
+    </folder>
+    <folder id="3" name="tricolordango">
+        <file id="0" name="tricolordango/tricolordango-0.png" width="170" height="107" pivot_x="0.50885" pivot_y="0.11909"/>
+    </folder>
+    <entity id="0" name="raiden_cook_pot_food">
+        <animation id="0" name="idle" length="100" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="100">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="adjudicatetime-0">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="0.749952" y="1.500096" angle="0"/>
+                </key>
+                <key id="1" time="100" spin="0">
+                    <object folder="0" file="0" x="0.749952" y="1.500096" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>
