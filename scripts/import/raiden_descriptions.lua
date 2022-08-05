@@ -97,7 +97,7 @@ if TUNING.LANGUAGE_GENSHIN_RAIDEN == "sc" then
                 {str = "基于元素充能效率超过100%的部分，每1%使雷电将军获 得下列效果：\n•梦想一心状态提供的元素能量恢复提高0.6%；\n•雷元素伤害加成提升0.4%。", title = false},
             },
             {
-                {str = "制造单手剑和长柄武器时，消耗的材料数量减少50%。", title = false},
+                {str = "制造单手剑和长柄武器时，返还50%的材料。", title = false},
             },
 			{
                 {str = "?", title = false},
@@ -393,7 +393,7 @@ else
                 {str = "Each 1% above 100% Energy Recharge that the Raiden Shogun possesses grants her:\n• 0.6% greater Energy restoration from Musou Isshin\n• 0.4% Electro DMG Bonus.", title = false},
             },
             {
-                {str = "Ingredients expended when crafting Swords and Polearms is decreased by 50%.", title = false},
+                {str = "When crafting Swords and Polearms, she will refund 50% of ingredients.", title = false},
             },
 			{
                 {str = "?", title = false},

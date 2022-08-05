@@ -328,6 +328,41 @@ local function RestoreEnergy(inst, data)
 	inst.gaincount = inst.gaincount + 1
 end
 
+--生活天赋（返还单手剑和长柄武器50%材料）
+local function RefundIngredients(inst, data)
+	local recipe = data.recipe
+	if recipe == nil then
+		return
+	end
+	
+	local issword_or_polearm = false
+	for k, v in pairs(TUNING.POLEARM_WEAPONS) do
+		if v == recipe.name then
+			issword_or_polearm = true
+			break
+		end
+	end
+	for k, v in pairs(TUNING.SWORD_WEAPONS) do
+		if v == recipe.name then
+			issword_or_polearm = true
+			break
+		end
+	end
+	if not issword_or_polearm then
+		return
+	end
+
+	for k, v in pairs(recipe.ingredients) do
+		if v.amount > 0 then
+			local amt = math.max(1, RoundBiasedUp(v.amount * inst.components.builder.ingredientmod))
+			local refund_amt = math.floor(amt / 2)
+			for i = 1, refund_amt do
+				inst.components.inventory:GiveItem(SpawnPrefab(v.type))
+			end
+		end
+	end
+end
+
 --技能RPC
 
 AddModRPCHandler("raiden_shogun", "elementalskill", elementalskillfn)
@@ -452,6 +487,7 @@ local master_postinit = function(inst)
     --监听器
 	inst:ListenForEvent("energyrecharge_change", ElectroBonusChange)
 	inst:ListenForEvent("damagecalculated", RestoreEnergy)
+	inst:ListenForEvent("builditem", RefundIngredients)
 	inst:ListenForEvent("death", OnDeath)
 	--
 	

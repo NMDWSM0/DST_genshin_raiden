@@ -17,6 +17,11 @@ local function HelpAttack(player, data)
     if inst == nil then
         return
     end
+
+    if data.damageresolved <= 0 or data.attackkey == "elementreaction" then  --无伤害或者元素反应不协同攻击（不然下雨天全自动打怪了属于是）
+        return 
+    end
+
     --print(inst, master, player)
     local target = data.target
     local master = inst.components.entitytracker:GetEntity("master")
@@ -62,7 +67,7 @@ local function LinkToPlayer(inst, player, master)
         local energycost = player.components.elementalcaster.energy.elementalburst
         player.components.combat.external_attacktype_multipliers:SetModifier(inst, eleburst_bonus * energycost, "eye_stormy_judge_burst", { atk_key = "elementalburst" })
     end
-    inst:ListenForEvent("onhitother", HelpAttack, player)
+    inst:ListenForEvent("damagecalculated", HelpAttack, player)
     inst:ListenForEvent("death", function(player, data)
         inst:Remove() 
     end, player)
