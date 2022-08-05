@@ -128,7 +128,7 @@ local Recipes = {
             Ingredient("purplegem", 1),
             Ingredient("amakumo_fruit", 10, "images/inventoryimages/amakumo_fruit.xml")
         },
-        level = TECH.LOST,
+        level = TECH.SCIENCE_TWO,
         atlas = "images/inventoryimages/raiden_constellation_star.xml",
         image = "raiden_constellation_star.tex",
         filters = { "REFINE", "CHARACTER" },

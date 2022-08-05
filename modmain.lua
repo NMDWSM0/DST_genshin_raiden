@@ -214,9 +214,9 @@ TUNING.THECATCH_ELEBURST_BONUS = { 0.16, 0.2, 0.24, 0.28, 0.32 }
 
 --------------------------------------
 --人物参数
-TUNING.RAIDENSHOGUN_HEALTH = 130
-TUNING.RAIDENSHOGUN_HUNGER = 250
-TUNING.RAIDENSHOGUN_SANITY = 150
+TUNING.RAIDEN_SHOGUN_HEALTH = 130
+TUNING.RAIDEN_SHOGUN_HUNGER = 250
+TUNING.RAIDEN_SHOGUN_SANITY = 150
 
 TUNING.RAIDEN_HUNGER_RATE = 1.5
 
@@ -399,6 +399,8 @@ modimport("scripts/import/crownloot_prefabpostinit.lua")
 --初始物品
 TUNING.GAMEMODE_STARTING_ITEMS.DEFAULT.RAIDEN_SHOGUN = { "favoniuslance" }
 TUNING.STARTING_ITEM_IMAGE_OVERRIDE.favoniuslance = { atlas = "images/inventoryimages/favoniuslance.xml", image = "favoniuslance.tex" }
+
+STRINGS.CHARACTER_SURVIVABILITY.raiden_shogun = TUNING.LANGUAGE_GENSHIN_RAIDEN == "sc" and "不那么难" or "Not that Hard"
 
 --------------------------------------------------------------------------
 --物品图标

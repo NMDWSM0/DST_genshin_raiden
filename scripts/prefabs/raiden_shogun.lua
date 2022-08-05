@@ -476,14 +476,16 @@ local master_postinit = function(inst)
 	inst:AddComponent("entitytracker")
 	
     --设置三维
-	inst.components.health:SetMaxHealth(TUNING.RAIDENSHOGUN_HEALTH)
-	inst.components.hunger:SetMax(TUNING.RAIDENSHOGUN_HUNGER)
-	inst.components.sanity:SetMax(TUNING.RAIDENSHOGUN_SANITY)
+	inst.components.health:SetMaxHealth(TUNING.RAIDEN_SHOGUN_HEALTH)
+	inst.components.hunger:SetMax(TUNING.RAIDEN_SHOGUN_HUNGER)
+	inst.components.sanity:SetMax(TUNING.RAIDEN_SHOGUN_SANITY)
 
 	--设置其他属性
 	inst.components.combat.damagemultiplier = 1
 	inst.components.hunger.hungerrate = TUNING.RAIDEN_HUNGER_RATE * TUNING.WILSON_HUNGER_RATE
 	inst.components.energyrecharge.recharge = 1.32
+
+	inst.components.foodaffinity:AddFoodtypeAffinity(FOODTYPE.GOODIES, 1.33)
 
 	inst.components.combat.overrideattackkeyfn = AttackkeyFn
 	inst.components.combat.overridestimulifn = StimuliFn
