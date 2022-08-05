@@ -517,6 +517,7 @@ local raiden_eleskill = State{
 	        local facingangle = inst.Transform:GetRotation() * DEGREES
 	        local facedirection = Vector3(math.cos(-facingangle), 0, math.sin(-facingangle))
 	        if ents ~= nil then
+                inst.components.energyrecharge:GainEnergy(3) --一个同色球
 		        for k, v in pairs(ents) do
 			        local dist = Vector3(x, y, z):Dist(inst:GetPosition())
 			        if dist < mindist then

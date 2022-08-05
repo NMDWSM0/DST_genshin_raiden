@@ -203,6 +203,11 @@ local function giveeye(inst)
 
 		if eye ~= nil then
             eye:Restart()
+			local eye_master = eye.components.entitytracker:GetEntity("master")
+			if not (eye_master == v) then  --如果队友身上的眼不是自己给自己的，那么就更新眼的主人
+				eye.components.entitytracker:ForgetEntity("master")
+				eye.components.entitytracker:TrackEntity("master", inst)
+			end
 		else
             eye = SpawnPrefab("eye_stormy_judge")
 			eye:LinkToPlayer(v, inst)
@@ -220,7 +225,6 @@ local function elementalskillfn(inst)
 	    return
 	end
 
-	inst.components.energyrecharge:GainEnergy(90)
 	inst:PushEvent("cast_elementalskill")
 
 	inst:DoTaskInTime(14 * FRAMES, function(inst) giveeye(inst) end)

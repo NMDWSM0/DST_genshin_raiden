@@ -22,7 +22,10 @@ local function HelpAttack(player, data)
         return 
     end
 
-    --print(inst, master, player)
+    if player.components.energyrecharge and math.random() < 0.25 then  --30%概率产一个微粒获得2点能量
+        player.components.energyrecharge:GainEnergy(2)
+    end
+    
     local target = data.target
     local master = inst.components.entitytracker:GetEntity("master")
     if not master:HasTag("eye_stormy_judge_cd") then
@@ -30,9 +33,13 @@ local function HelpAttack(player, data)
         local old_state = master.components.combat.ignorehitrange
 		master.components.combat.ignorehitrange = true
         local x, y, z = target.Transform:GetWorldPosition()
-        local ents = TheSim:FindEntities(x, y, z, 1.5, {"_combat"}, {"FX", "NOCLICK", "DECOR", "INLIMBO", "player", "playerghost", "companion", "noauradamage"})
+        local ents = TheSim:FindEntities(x, y, z, 1.5, {"_combat"}, TUNING.RAIDEN_AREASKILLS_NOTAGS)
+        local dmg = TUNING.RAIDENSKILL_ELESKILL.CO_DMG[master.components.talents:GetTalentLevel(2)]
+        if master ~= player then
+            dmg = dmg * 0.2
+        end
         for k, v in pairs(ents) do
-            master.components.combat:DoAttack(v, nil, nil, 4, TUNING.RAIDENSKILL_ELESKILL.CO_DMG[master.components.talents:GetTalentLevel(2)], "elementalskill")
+            master.components.combat:DoAttack(v, nil, nil, 4, dmg, "elementalskill")
         end
         master.components.combat.ignorehitrange = old_state
         master:DoTaskInTime(0.9, function(master) 

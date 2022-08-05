@@ -251,7 +251,7 @@ TUNING.RAIDENSKILL_NORMALATK =
 
 TUNING.RAIDENSKILL_ELESKILL = 
 {
-    CD = 1,
+    CD = 10,
     DURATION = 25,
     --LEVEL           1      2      3      4      5      6      7      8      9      10     11     12     13     14     15
     DMG =            {1.172, 1.260, 1.348, 1.465, 1.553, 1.641, 1.758, 1.875, 1.992, 2.110, 2.227, 2.344, 2.491, 2.637, 2.784},
@@ -261,7 +261,7 @@ TUNING.RAIDENSKILL_ELESKILL =
 
 TUNING.RAIDENSKILL_ELEBURST = 
 {
-    CD = 1,
+    CD = 18,
     ENERGY = 90, 
     DURATION = 7,
     --LEVEL              1      2      3      4      5      6      7      8      9      10     11     12     13     14     15

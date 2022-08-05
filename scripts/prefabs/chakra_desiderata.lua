@@ -56,7 +56,7 @@ end
 local function SetStack(inst, stack)
     inst.stack = math.min(math.max(stack, 0), 60)
     inst.AnimState:SetPercent("anim", inst.stack / 60)
-    print(inst.stack)
+    --print(inst.stack)
     for i = 1, 60 do
         local item = inst.components.entitytracker:GetEntity("item_"..i)
         if i <= inst.stack then
