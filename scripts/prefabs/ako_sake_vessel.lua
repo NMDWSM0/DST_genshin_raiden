@@ -19,7 +19,7 @@ local function fn()
     inst.AnimState:PlayAnimation("idle")
 	--inst.AnimState:SetBloomEffectHandle("shaders/anim.ksh")
 
-    inst.Transform:SetScale(1, 1, 1)
+    inst.Transform:SetScale(0.8, 0.8, 0.8)
 
     MakeInventoryFloatable(inst, "med", 0.05, {1.1, 0.5, 1.1}, true, -9)
 

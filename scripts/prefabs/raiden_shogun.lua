@@ -7,11 +7,11 @@ local assets = {
 }
 
 local prefabs = {
-    "engulfinglightning",
+    "favoniuslance",
 }
 
 local start_inv = {
-	"engulfinglightning",
+	"favoniuslance",
 }
 
 local skillkeys = {

@@ -179,4 +179,4 @@ local function MakeSpecificBlueprint(specific_item)
 end
 
 return Prefab("spice_amakumo_blueprint", MakeSpecificBlueprint("spice_amakumo"), blueprint_assets),
-Prefab("engulflightning_blueprint", MakeSpecificBlueprint("engulflightning"), blueprint_assets)
+Prefab("engulfinglightning_blueprint", MakeSpecificBlueprint("engulfinglightning"), blueprint_assets)

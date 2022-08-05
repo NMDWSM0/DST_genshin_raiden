@@ -237,8 +237,8 @@ TUNING.BUFF_AMAKUMOEATEN_DURATION = TUNING.TOTAL_DAY_TIME * 0.5
 
 --------------------------------------
 --植物参数
-TUNING.AMAKUMO_GRASS_REGROW_TIME = TUNING.TOTAL_DAY_TIME * 5  --长出来的时间
-TUNING.AMAKUMOGRASS_REGROWTH_TIME = TUNING.TOTAL_DAY_TIME * 8  --资源再生时间（被烧掉），这两个是不一样的
+TUNING.AMAKUMO_GRASS_REGROW_TIME = TUNING.TOTAL_DAY_TIME * 4  --长出来的时间
+TUNING.AMAKUMOGRASS_REGROWTH_TIME = TUNING.TOTAL_DAY_TIME * 6  --资源再生时间（被烧掉），这两个是不一样的
 
 ------------------------------------------
 --技能参数
@@ -386,6 +386,8 @@ modimport("scripts/import/cursable_postinit.lua")
 
 modimport("scripts/import/regrowthmanager_postinit.lua")
 
+modimport("scripts/import/moonbase_postinit.lua")
+
 modimport("scripts/import/crownloot_prefabpostinit.lua")
 
 --------------------------------------
@@ -395,8 +397,8 @@ modimport("scripts/import/crownloot_prefabpostinit.lua")
 
 --------------------------------------------------------------------------
 --初始物品
-TUNING.GAMEMODE_STARTING_ITEMS.DEFAULT.RAIDEN_SHOGUN = { "engulfinglightning" }
-TUNING.STARTING_ITEM_IMAGE_OVERRIDE.engulfinglightning = { atlas = "images/inventoryimages/engulfinglightning.xml", image = "engulfinglightning.tex" }
+TUNING.GAMEMODE_STARTING_ITEMS.DEFAULT.RAIDEN_SHOGUN = { "favoniuslance" }
+TUNING.STARTING_ITEM_IMAGE_OVERRIDE.favoniuslance = { atlas = "images/inventoryimages/favoniuslance.xml", image = "favoniuslance.tex" }
 
 --------------------------------------------------------------------------
 --物品图标

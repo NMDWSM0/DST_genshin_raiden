@@ -70,7 +70,7 @@ local Recipes = {
         name = "favoniuslance",
         ingredients = 
         {
-			Ingredient("greengem", 1),
+			Ingredient("moonrock", 4),
             Ingredient("moonglass", 4),
             Ingredient("flint", 4)
         },
@@ -166,7 +166,7 @@ local Recipes = {
         ingredients = 
         {
 			Ingredient("papyrus", 2), 
-            Ingredient("quagmire_saltock", 4),
+            Ingredient("saltrock", 4),
             Ingredient("nightmarefuel", 2)
         },
         level = TECH.MAGIC_THREE,

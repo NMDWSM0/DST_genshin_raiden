@@ -1,16 +1,16 @@
 --自定义区域
-local chargeattack_anim = "action_raiden_chargeattack"   --NOT_OK
+local chargeattack_anim = "action_raiden_chargeattack"   --OK
 local chargeattack_anim_pst = "action_raiden_chargeattack_pst"
 local eleburst_anim = "action_raiden_eleburst"   --OK
 local eleskill_anim = "action_raiden_eleskill"   --OK
-local chargeattack_timeout = 32 * FRAMES   --NOT_OK
+local chargeattack_timeout = 32 * FRAMES   --OK
 local eleburst_timeout = 75 * FRAMES   --OK
 local eleskill_timeout = 39 * FRAMES   --OK
 --更改xxxx_anim的名字就播放对应的动画
 --更改xxxx_timeout的数值就设置这个动画播放多长时间后自动退出（如果时间比动画短会强退），FRAMES = 1/30秒
 --chargeattack是重击，长按F（长按攻击键）触发
---eleburst是元素爆发，默认键位Q，可以在“元素反应”MOD里面设置
---eleskill是元素战技，默认键位E，可以在“元素反应”MOD里面设置
+--eleburst是元素爆发，默认键位Q，可以自行设置
+--eleskill是元素战技，默认键位E，可以自行设置
 ------------------------------------------------------------
 
 local function ClearCollision(inst)
@@ -517,7 +517,6 @@ local raiden_eleskill = State{
 	        local facingangle = inst.Transform:GetRotation() * DEGREES
 	        local facedirection = Vector3(math.cos(-facingangle), 0, math.sin(-facingangle))
 	        if ents ~= nil then
-                inst.components.energyrecharge:GainEnergy(3) --一个同色球
 		        for k, v in pairs(ents) do
 			        local dist = Vector3(x, y, z):Dist(inst:GetPosition())
 			        if dist < mindist then
@@ -527,6 +526,7 @@ local raiden_eleskill = State{
 		        end
 	        end
 	        if mintarget ~= nil then
+                inst.components.energyrecharge:GainEnergy(3) --一个同色球
                 inst:FacePoint(Point(mintarget.Transform:GetWorldPosition()))
 		        facedirection = (mintarget:GetPosition() - Vector3(x, y, z)):Normalize()
                 local old_state = inst.components.combat.ignorehitrange
