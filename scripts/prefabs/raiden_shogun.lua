@@ -361,7 +361,10 @@ local function RefundIngredients(inst, data)
 			local amt = math.max(1, RoundBiasedUp(v.amount * inst.components.builder.ingredientmod))
 			local refund_amt = math.floor(amt / 2)
 			for i = 1, refund_amt do
-				inst.components.inventory:GiveItem(SpawnPrefab(v.type))
+				local item = SpawnPrefab(v.type)
+				if item ~= nil then
+					inst.components.inventory:GiveItem(item)
+				end
 			end
 		end
 	end

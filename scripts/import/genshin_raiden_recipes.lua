@@ -70,7 +70,7 @@ local Recipes = {
         name = "favoniuslance",
         ingredients = 
         {
-			Ingredient("moonrock", 4),
+			Ingredient("goldnugget", 2),
             Ingredient("moonglass", 4),
             Ingredient("flint", 4)
         },
@@ -108,9 +108,9 @@ local Recipes = {
         name = "engulfinglightning",
         ingredients = 
         {
-			Ingredient("purplegem", 10),
-            Ingredient("moonrocknugget", 20),
-            Ingredient("amakumo_fruit", 40, "images/inventoryimages/amakumo_fruit.xml"),
+			Ingredient("purplegem", 8),
+            Ingredient("moonrocknugget", 16),
+            Ingredient("amakumo_fruit", 20, "images/inventoryimages/amakumo_fruit.xml"),
         },
         level = TECH.LOST,
         atlas = "images/inventoryimages/engulfinglightning.xml",
