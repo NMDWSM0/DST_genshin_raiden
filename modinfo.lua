@@ -10,7 +10,7 @@ else
 end
 
 author = "1526606449"
-version = "1.0.2"
+version = "1.0.3"
 api_version = 10
 dont_starve_compatible = false
 reign_of_giants_compatible = false
@@ -22,6 +22,8 @@ client_only_mod = false
 priority = -10  --必须比core模块后加载
 
 --MOD中使用了风铃草的“upvaluehelper”
+--MOD中可以拖动的按钮，参考了“Insight”的写法
+--MOD中制作栏filters的资料整理，参照了“能力勋章”中的注释
 
 local opt_Empty = {{description = "", data = 0}}
 

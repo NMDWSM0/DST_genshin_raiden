@@ -51,13 +51,13 @@ function KeyHandler_A:OnRawKey(key, down)
 				local a = self.downkeys
 				for i = #a,1,-1 do
 				    if self.downkeys[i] == key then
-					    table.remove(self.downkeys,i)
+					    table.remove(self.downkeys, i)
 					end
 				end
 		elseif key and down and not self.paused then
       			player:PushEvent("keydown", {inst = self.inst, player = player, key = key})
 				if not self:isinclude(key) then
-				    table.insert(self.downkeys,key)
+				    table.insert(self.downkeys, key)
 				end
 		end
   	end
