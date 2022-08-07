@@ -32,7 +32,7 @@ end
 --重击
 local raiden_chargeattack = State{
     name = "raiden_chargeattack",
-    tags = {"chargeattack", "attack", "notalking", "abouttoattack", "autopredict" },
+    tags = {"chargeattack", "attack", "notalking", "nointerrupt", "abouttoattack", "autopredict" },
 
     onenter = function(inst)
         if inst.components.combat:InCooldown() then
@@ -176,7 +176,7 @@ local raiden_chargeattack = State{
 
 local raiden_chargeattack_client = State{
     name = "raiden_chargeattack",
-    tags = {"chargeattack", "attack", "notalking", "abouttoattack" },
+    tags = {"chargeattack", "attack", "notalking", "nointerrupt", "abouttoattack" },
 
     onenter = function(inst)
         local buffaction = inst:GetBufferedAction()
@@ -655,3 +655,16 @@ AddStategraphState("SGwilson_client", raiden_eleskill_client)
 
 AddStategraphPostInit("wilson", SGWilsonPostInit)
 AddStategraphPostInit("wilson_client", SGWilsonClientPostInit)
+
+AddStategraphPostInit("wilson", function(sg)
+    --雷电将军重击期间提升抗打断能力
+	if sg.events and sg.events.attacked then
+		local old_attacked = sg.events.attacked.fn
+		sg.events.attacked.fn = function(inst, data)
+			if inst.sg and inst.sg:HasStateTag("nointerrupt") and inst.sg:HasStateTag("chargeattack") and inst:HasTag("raiden_shogun") then
+                return
+            end
+            return old_attacked(inst, data)
+        end
+	end
+end)

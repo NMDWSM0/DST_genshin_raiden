@@ -89,7 +89,11 @@ local function SetStack(inst, stack)
             item.AnimState:SetMultColour(1, 1, 1, 0)
         end
     else
-        inst.AnimState:SetMultColour(1, 1, 1, 1)
+        if TUNING.CHAKRA_STACKNUMBER then
+            inst.AnimState:SetMultColour(1, 1, 1, 1)
+        else
+            inst.AnimState:SetMultColour(1, 1, 1, 0)
+        end
         for i = 1, 60 do
             local item = inst.components.entitytracker:GetEntity("item_"..i)
             item.AnimState:SetMultColour(1, 1, 1, 1)
@@ -151,7 +155,11 @@ local function fn()
     inst.AnimState:SetPercent("anim", 0)
 	inst.AnimState:SetBloomEffectHandle("shaders/anim.ksh")
 
-    --inst.Transform:SetScale(2, 2, 2)
+    if TUNING.CHAKRA_STACKNUMBER then
+        inst.AnimState:SetMultColour(1, 1, 1, 1)
+    else
+        inst.AnimState:SetMultColour(1, 1, 1, 0)
+    end
 
     inst.entity:SetPristine()
 

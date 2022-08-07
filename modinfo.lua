@@ -10,7 +10,7 @@ else
 end
 
 author = "1526606449"
-version = "1.0.3"
+version = "1.0.4"
 api_version = 10
 dont_starve_compatible = false
 reign_of_giants_compatible = false
@@ -42,6 +42,19 @@ if ischinese then
 
     configuration_options =
     {
+        Title("简单模式"),
+        {
+            name = "easy_mode",
+            label = "简单模式",
+            hover = "如果你嫌弃她前期伤害太低，可以开启此选项",
+            options =
+            {
+                { description = "开启", data = true, hover = "雷电将军的基础攻击力将被提升至33.7" },
+                { description = "关闭", data = false, hover = "雷电将军的基础攻击力为10" },
+            },
+            default = false,
+        },
+
         Title("控制"),
         {
             name = "key_elementalskill",
@@ -226,6 +239,19 @@ if ischinese then
             default = 113,
         },
 
+        Title("显示"),
+        {
+            name = "chakra_stacknumber",
+            label = "愿力数字显示",
+            hover = "关闭后可以观察诸愿百眼之轮的动画来判断层数",
+            options =
+            {
+                { description = "开启", data = true, hover = "使用数字显示诸愿百眼之轮的愿力层数" },
+                { description = "关闭", data = false, hover = "关闭数字显示" },
+            },
+            default = true,
+        },
+
         Title("游戏"),
         {
             name = "amakumo_grass_regrowth",
@@ -259,6 +285,19 @@ else
 
     configuration_options =
     {
+        Title("Easy Mode"),
+        {
+            name = "easy_mode",
+            label = "Easy Mode",
+            hover = "If you think her dmg is too low, then you can turn on this",
+            options =
+            {
+                { description = "On", data = true, hover = "Her base atk will be increased to 33.7" },
+                { description = "Off", data = false, hover = "Her base atk is still 10" },
+            },
+            default = false,
+        },
+
         Title("Control"),
         {
             name = "key_elementalskill",
@@ -441,6 +480,19 @@ else
                 { description = "9", data = 57 },
             },
             default = 113,
+        },
+
+        Title("Display"),
+        {
+            name = "chakra_stacknumber",
+            label = "Display number of Chakra Stack",
+            hover = "You can get information by the anim of Chakra Desiderata if you turn off",
+            options =
+            {
+                { description = "On", data = true, hover = "Show the number of stack in the middle of Chakra Desiderata" },
+                { description = "Off", data = false, hover = "The number of stack will not show" },
+            },
+            default = true,
         },
 
         Title("Game"),

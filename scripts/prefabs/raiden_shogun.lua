@@ -419,11 +419,11 @@ local common_postinit = function(inst)
 	
 	--添加显示血量组件和键位设置器
 	
-	inst:AddComponent("keyhandler_a")
-	inst.components.keyhandler_a:SetSkillKeys(skillkeys)
+	inst:AddComponent("keyhandler_raiden")
+	inst.components.keyhandler_raiden:SetSkillKeys(skillkeys)
 	--释放
-	inst.components.keyhandler_a:AddActionListener(TUNING.ELEMENTALSKILL_KEY, {Namespace = "raiden_shogun", Action = "elementalskill"}, "keyup", nil, true)
-	inst.components.keyhandler_a:AddActionListener(TUNING.ELEMENTALBURST_KEY, {Namespace = "raiden_shogun", Action = "elementalburst"}, "keyup", nil, true)
+	inst.components.keyhandler_raiden:AddActionListener(TUNING.ELEMENTALSKILL_KEY, {Namespace = "raiden_shogun", Action = "elementalskill"}, "keyup", nil, false)
+	inst.components.keyhandler_raiden:AddActionListener(TUNING.ELEMENTALBURST_KEY, {Namespace = "raiden_shogun", Action = "elementalburst"}, "keyup", nil, false)
 
     ----------------------------------------------------------------------------
     --状态
@@ -484,6 +484,7 @@ local master_postinit = function(inst)
 	inst.components.sanity:SetMax(TUNING.RAIDEN_SHOGUN_SANITY)
 
 	--设置其他属性
+	inst.components.combat:SetDefaultDamage(TUNING.RAIDEN_SHOGUN_BASEATK)
 	inst.components.combat.damagemultiplier = 1
 	inst.components.hunger.hungerrate = TUNING.RAIDEN_HUNGER_RATE * TUNING.WILSON_HUNGER_RATE
 	inst.components.energyrecharge.recharge = 1.32
