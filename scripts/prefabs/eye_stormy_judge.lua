@@ -48,7 +48,7 @@ local function HelpAttack(player, data)
 
         local fx1 = SpawnPrefab("raiden_atk_fx1")
         local fx2 = SpawnPrefab("raiden_atk_fx2")
-        if target.components.combat.hiteffectsymbol ~= nil and target.AnimState:BuildHasSymbol(target.components.combat.hiteffectsymbol) then
+        if target.components.combat and target.components.combat.hiteffectsymbol ~= nil and target.AnimState:BuildHasSymbol(target.components.combat.hiteffectsymbol) then
             fx1.entity:SetParent(target.entity)
             fx1.entity:AddFollower():FollowSymbol(target.GUID, target.components.combat.hiteffectsymbol, 0, 0, 0)
             fx2.entity:SetParent(target.entity)
