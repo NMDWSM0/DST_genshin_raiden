@@ -211,6 +211,7 @@ local function MakeRaidenCookbook(name, onusefn)
         inst:AddComponent("finiteuses")
         inst.components.finiteuses:SetMaxUses(5)
         inst.components.finiteuses:SetUses(5)
+        inst.components.finiteuses:SetOnFinished(inst.Remove)
     
         inst:AddComponent("fuel")
         inst.components.fuel.fuelvalue = TUNING.MED_FUEL
