@@ -234,6 +234,9 @@ end
 
 --元素爆发滤镜
 local function SetVisionMode(inst, mode)
+	if inst.components.playervision == nil then
+		return
+	end
     if mode then
 	    inst.components.playervision:ForceNightVision(true)
         inst.components.playervision:SetCustomCCTable(RAIDEN_ELEBURST_COLOURCUBES)
@@ -258,7 +261,9 @@ local function elementalburst_exitfn(inst)
 
 	inst:RemoveTag("stronggrip")
 	inst.components.combat:SetRange(TUNING.DEFAULT_ATTACK_RANGE)
-	inst.components.inventory.isexternallyinsulated:RemoveModifier(inst)
+	if inst.components.inventory.isexternallyinsulated then
+		inst.components.inventory.isexternallyinsulated:RemoveModifier(inst)
+	end
 
 	local item = inst.replica.inventory:GetEquippedItem(EQUIPSLOTS.HANDS)
 	if item ~= nil and item.components.equippable then
@@ -290,7 +295,9 @@ local function elementalburstfn(inst)
 
 	inst.burststate = true
 	SetVisionMode(inst, inst.burststate)
-	inst.components.inventory.isexternallyinsulated:SetModifier(inst, true)
+	if inst.components.inventory.isexternallyinsulated then
+		inst.components.inventory.isexternallyinsulated:SetModifier(inst, true)
+	end
 	inst._burststate:set(true)
 	inst.resolve_stack = TakeChakraStack(inst)
 	inst.exittask = inst:DoTaskInTime(TUNING.RAIDENSKILL_ELEBURST.DURATION + 2, elementalburst_exitfn)
