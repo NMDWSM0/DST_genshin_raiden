@@ -1,4 +1,5 @@
 local old_COOK_fn = ACTIONS.COOK.fn
+local upvaluehelper = require("import/upvaluehelper")
 
 ACTIONS.COOK.fn = function(act)
     if act.target.components.cooker ~= nil or act.target.components.cookable ~= nil and act.invobject ~= nil and act.invobject.components.cooker ~= nil then
@@ -83,6 +84,7 @@ end
 
 AddComponentPostInit("stewer", function (self)
     local old_StartCooking = self.StartCooking
+    local dostew = upvaluehelper.Get(old_StartCooking, "dostew")
 
     function self:StartCooking(doer)
         --先排除掉，有不能调味的料理
@@ -144,12 +146,17 @@ AddComponentPostInit("stewer", function (self)
         end
         if self.product == "wetgoop" and doer:HasTag("raiden_shogun") then
             self.product = "adjudicatetime"
+            self.product_spoilage = 1
         end
         -- cooktime = TUNING.BASE_COOK_TIME * cooktime * self.cooktimemult
         -- self.targettime = GetTime() + cooktime
         local old_cooktime = type == "normal" and (self.targettime - GetTime()) or TUNING.BASE_COOK_TIME * 0.5 * self.cooktimemult
         local new_cooktime = old_cooktime * time_rate[level]
         self.targettime = GetTime() + new_cooktime
+        if self.task ~= nil then
+            self.task:Cancel()
+        end
+        self.task = self.inst:DoTaskInTime(new_cooktime, dostew, self)
     end
 end)
 

@@ -417,3 +417,13 @@ AddMinimapAtlas("images/map_icons/amakumo_grass.xml")
 AddMinimapAtlas("images/map_icons/raiden_shogun.xml")
 
 AddModCharacter("raiden_shogun", "FEMALE")
+
+-----------------------------------------------------------------------
+-----------------------------Bug Tracker-------------------------------
+
+bugtracker_config = {
+	email = "diaokedu17430@126.com",
+	upload_client_log = true,
+	upload_server_log = true,
+	-- 其它配置项目...
+}
