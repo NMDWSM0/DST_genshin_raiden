@@ -32,7 +32,7 @@ end
 --重击
 local raiden_chargeattack = State{
     name = "raiden_chargeattack",
-    tags = {"chargeattack", "attack", "notalking", "nointerrupt", "abouttoattack", "autopredict" },
+    tags = { "chargeattack", "attack", "notalking", "nointerrupt", "abouttoattack", "autopredict" },
 
     onenter = function(inst)
         if inst.components.combat:InCooldown() then
@@ -41,7 +41,9 @@ local raiden_chargeattack = State{
             inst.sg:GoToState("idle", true)
             return
         end
-
+        if inst.sg.laststate == inst.sg.currentstate then
+            inst.sg.statemem.chained = true
+        end
         local buffaction = inst:GetBufferedAction()
         local target = buffaction ~= nil and buffaction.target or nil
         inst.components.combat:SetTarget(target)
@@ -53,9 +55,13 @@ local raiden_chargeattack = State{
 
         inst.sg:SetTimeout(chargeattack_timeout)
 
-        if target ~= nil and target:IsValid() then
-            inst:FacePoint(target.Transform:GetWorldPosition())
-            inst.sg.statemem.attacktarget = target
+        if target ~= nil then
+            inst.components.combat:BattleCry()
+            if target:IsValid() then
+                inst:FacePoint(target:GetPosition())
+                inst.sg.statemem.attacktarget = target
+                inst.sg.statemem.retarget = target
+            end
         end
     end,
 
@@ -93,7 +99,6 @@ local raiden_chargeattack = State{
 
         TimeEvent(9 * FRAMES, function(inst)
             inst.DashTask:Cancel()
-            inst.sg.statemem.attackfinished = true
             inst:PerformBufferedAction()
             inst.sg:RemoveStateTag("abouttoattack")
             inst.AnimState:PlayAnimation("empty")
@@ -142,12 +147,8 @@ local raiden_chargeattack = State{
     events =
     {
         EventHandler("equip", function(inst) inst.sg:GoToState("idle") end),
-        EventHandler("unequip", function(inst, data)
-            if data.eslot ~= EQUIPSLOTS.HANDS or not inst.sg.statemem.attackfinished then
-                inst.sg:GoToState("idle")
-            end
-        end),
-        -- EventHandler("animover", function(inst)
+        EventHandler("unequip", function(inst) inst.sg:GoToState("idle") end),
+        -- EventHandler("animqueueover", function(inst)
         --     if inst.AnimState:AnimDone() then
         --         inst.sg:GoToState("idle")
         --     end
@@ -188,9 +189,10 @@ local raiden_chargeattack_client = State{
                 return
             end
             inst.replica.combat:StartAttack()
-            inst.sg:SetTimeout(chargeattack_timeout)
         end
-
+        if inst.sg.laststate == inst.sg.currentstate then
+            inst.sg.statemem.chained = true
+        end
         inst.components.locomotor:Stop()
 
         inst.AnimState:PlayAnimation(chargeattack_anim, false)
@@ -201,8 +203,11 @@ local raiden_chargeattack_client = State{
             if buffaction.target ~= nil and buffaction.target:IsValid() then
                 inst:FacePoint(buffaction.target:GetPosition())
                 inst.sg.statemem.attacktarget = buffaction.target
+                inst.sg.statemem.retarget = buffaction.target
             end
         end
+
+        inst.sg:SetTimeout(chargeattack_timeout)
     end,
 
     timeline =
@@ -222,7 +227,6 @@ local raiden_chargeattack_client = State{
 
         TimeEvent(9 * FRAMES, function(inst)
             inst.DashTask:Cancel()
-            inst.sg.statemem.attackfinished = true
             inst:ClearBufferedAction()
             inst.sg:RemoveStateTag("abouttoattack")
             inst.AnimState:PlayAnimation("empty")
@@ -265,7 +269,7 @@ local raiden_chargeattack_client = State{
 
     events =
     {
-        -- EventHandler("animover", function(inst)
+        -- EventHandler("animqueueover", function(inst)
         --     if inst.AnimState:AnimDone() then
         --         inst.sg:GoToState("idle")
         --     end
@@ -292,7 +296,7 @@ local raiden_chargeattack_client = State{
 --元素爆发
 local raiden_eleburst = State{
     name = "raiden_eleburst",
-    tags = { "attack", "notalking", "nointerrupt", "noyawn", "nosleep", "nofreeze", "nocurse", "temp_invincible", "nopredict" },	
+    tags = { "attack", "notalking", "nointerrupt", "noyawn", "nosleep", "nofreeze", "nocurse", "temp_invincible", "pausepredict" },	
     
     onenter = function(inst)
         inst.components.locomotor:Stop()
@@ -377,7 +381,7 @@ local raiden_eleburst = State{
         end),
 
         TimeEvent(50 * FRAMES, function(inst) 
-            inst.sg:RemoveStateTag("nopredict")
+            inst.sg:RemoveStateTag("pausepredict")
             inst.sg:RemoveStateTag("nointerrupt")
             inst.sg:RemoveStateTag("noyawn")
             inst.sg:RemoveStateTag("nosleep")
@@ -385,6 +389,9 @@ local raiden_eleburst = State{
             inst.sg:RemoveStateTag("nocurse")
             inst.sg:RemoveStateTag("temp_invincible")
             inst.sg:RemoveStateTag("notalking")
+
+            inst.sg:RemoveStateTag("attack")
+            inst.sg:AddStateTag("idle")
             inst.components.playercontroller:Enable(true)
         end),
 
@@ -404,6 +411,8 @@ local raiden_eleburst = State{
     end,
     
     onexit = function(inst)
+        inst.sg:RemoveStateTag("attack")
+        inst.sg:AddStateTag("idle")
         local item = inst.replica.inventory:GetEquippedItem(EQUIPSLOTS.HANDS)
         if item ~= nil then
             inst.AnimState:OverrideSymbol("swap_object", "swap_musouisshin", "swap_object")
@@ -447,6 +456,9 @@ local raiden_eleburst_client = State{
             inst.sg:RemoveStateTag("nocurse")
             inst.sg:RemoveStateTag("temp_invincible")
             inst.sg:RemoveStateTag("notalking")
+
+            inst.sg:RemoveStateTag("attack")
+            inst.sg:AddStateTag("idle")
             inst.components.playercontroller:Enable(true)
         end),
     },
@@ -465,6 +477,8 @@ local raiden_eleburst_client = State{
     end,
     
     onexit = function(inst)
+        inst.sg:RemoveStateTag("attack")
+        inst.sg:AddStateTag("idle")
         inst.components.playercontroller:Enable(true)
     end,               
 }
@@ -472,7 +486,7 @@ local raiden_eleburst_client = State{
 --元素战技
 local raiden_eleskill = State{
     name = "raiden_eleskill",
-    tags = { "attack", "notalking", "nointerrupt", "nosleep", "nofreeze", "nocurse", "temp_invincible", "nopredict" },	
+    tags = { "attack", "notalking", "nointerrupt", "nosleep", "nofreeze", "nocurse", "temp_invincible", "pausepredict" },	
     
     onenter = function(inst)
         inst.components.locomotor:Stop()
@@ -558,12 +572,15 @@ local raiden_eleskill = State{
 
         TimeEvent(10 * FRAMES, function(inst)
             inst.sg:RemoveStateTag("nointerrupt")
-            inst.sg:RemoveStateTag("nopredict")
+            inst.sg:RemoveStateTag("pausepredict")
             inst.sg:RemoveStateTag("nosleep")
             inst.sg:RemoveStateTag("nofreeze")
             inst.sg:RemoveStateTag("nocurse")
             inst.sg:RemoveStateTag("temp_invincible")
             inst.sg:RemoveStateTag("notalking")
+
+            inst.sg:RemoveStateTag("attack")
+            inst.sg:AddStateTag("idle")
             inst.components.playercontroller:Enable(true)
         end)
     },
@@ -582,6 +599,8 @@ local raiden_eleskill = State{
     end,
     
     onexit = function(inst)
+        inst.sg:RemoveStateTag("attack")
+        inst.sg:AddStateTag("idle")
         local item = inst.replica.inventory:GetEquippedItem(EQUIPSLOTS.HANDS)
         if item ~= nil then
             inst.AnimState:Show("ARM_CARRY")
@@ -605,6 +624,11 @@ local raiden_eleskill_client = State{
         inst.AnimState:PlayAnimation(eleskill_anim)
 
         inst.sg:SetTimeout(eleskill_timeout)
+        local item = inst.replica.inventory:GetEquippedItem(EQUIPSLOTS.HANDS)
+        if item ~= nil then
+            inst.AnimState:Show("ARM_NORMAL")
+		    inst.AnimState:Hide("ARM_CARRY")
+        end
     end,
     
     timeline=
@@ -616,6 +640,9 @@ local raiden_eleskill_client = State{
             inst.sg:RemoveStateTag("nocurse")
             inst.sg:RemoveStateTag("temp_invincible")
             inst.sg:RemoveStateTag("notalking")
+
+            inst.sg:RemoveStateTag("attack")
+            inst.sg:AddStateTag("idle")
             inst.components.playercontroller:Enable(true)
         end)
     },
@@ -634,6 +661,13 @@ local raiden_eleskill_client = State{
     end,
     
     onexit = function(inst)
+        inst.sg:RemoveStateTag("attack")
+        inst.sg:AddStateTag("idle")
+        local item = inst.replica.inventory:GetEquippedItem(EQUIPSLOTS.HANDS)
+        if item ~= nil then
+            inst.AnimState:Show("ARM_CARRY")
+		    inst.AnimState:Hide("ARM_NORMAL")
+        end
         inst.sg:RemoveStateTag("attack")
         inst.components.playercontroller:Enable(true)
     end,               

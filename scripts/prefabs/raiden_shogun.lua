@@ -128,6 +128,17 @@ end
 
 --注意这是一个客机也运行的函数
 local function ChargeSGFn(inst)
+	if TheWorld.ismastersim then
+		local weapon = inst.components.combat ~= nil and inst.components.combat:GetWeapon() or nil
+		if weapon == nil then
+			return "attack"
+		end
+	else
+		local equip = inst.replica.inventory:GetEquippedItem(EQUIPSLOTS.HANDS) or nil
+		if equip == nil then
+			return "attack"
+		end
+	end
 	return inst.burststate and "raiden_chargeattack" or "chargeattack"
 end
 
