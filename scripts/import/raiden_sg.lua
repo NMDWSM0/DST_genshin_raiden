@@ -346,6 +346,7 @@ local raiden_eleburst = State{
 
             local x, y, z = inst.Transform:GetWorldPosition()
 	        local ents = TheSim:FindEntities(x, y, z, 6, {"_combat"}, TUNING.RAIDEN_AREASKILLS_NOTAGS)
+            local work_ents = TheSim:FindEntities(x, y, z, 6, {"plant"})
             local bloombombs = TheSim:FindEntities(x, y, z, 6, {"bloombomb"}, {"isexploding", "istracing"})
             local facingangle = inst.Transform:GetRotation() * DEGREES
 	        local facedirection = Vector3(math.cos(-facingangle), 0, math.sin(-facingangle))
@@ -359,6 +360,13 @@ local raiden_eleburst = State{
                 end
             end
             inst.components.combat.ignorehitrange = old_state
+
+            for k, v in pairs(work_ents) do
+                local targetdirection = (v:GetPosition() - Vector3(x, y, z)):Normalize()
+                if targetdirection:Dot(facedirection) > 0 and v.components.workable and v.components.workable.action == ACTIONS.CHOP then   
+                    v.components.workable:Destroy(inst)
+                end
+            end
 
             for k, v in pairs(bloombombs) do
                 local targetdirection = (v:GetPosition() - Vector3(x, y, z)):Normalize()

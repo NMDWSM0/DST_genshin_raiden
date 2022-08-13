@@ -2,13 +2,13 @@ local old_COOK_fn = ACTIONS.COOK.fn
 local upvaluehelper = require("import/upvaluehelper")
 
 ACTIONS.COOK.fn = function(act)
-    if act.target.components.cooker ~= nil or act.target.components.cookable ~= nil and act.invobject ~= nil and act.invobject.components.cooker ~= nil then
-        if act.doer.components.cookunlocker and act.doer.components.cookunlocker:GetLevel(1) == 0 then
+    if act.target and act.target.components.cooker ~= nil or act.target.components.cookable ~= nil and act.invobject ~= nil and act.invobject.components.cooker ~= nil then
+        if act.doer and act.doer.components.cookunlocker and act.doer.components.cookunlocker:GetLevel(1) == 0 then
             act.doer.components.talker:Say(GetActionFailString(act.doer, "COOK"))
             return false
         end
-    elseif act.target.components.stewer ~= nil then
-        if act.doer.components.cookunlocker and act.doer.components.cookunlocker:GetLevel(2) == 0 then
+    elseif act.target and act.target.components.stewer ~= nil then
+        if act.doer and act.doer.components.cookunlocker and act.doer.components.cookunlocker:GetLevel(2) == 0 then
             act.doer.components.talker:Say(GetActionFailString(act.doer, "COOK"))
             return false
         end
