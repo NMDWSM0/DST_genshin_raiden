@@ -21,10 +21,10 @@ AddComponentPostInit("cookable", function (self)
     local old_Cook = self.Cook
 
     function self:Cook(cooker, chef)
-        local raw_rate = {0.33, 0.25, 0.2, 0}
+        local raw_rate = {0.25, 0.2, 0.15, 0}
         local raw_punish = {-0.15, -0.1, -0.05, 0}
-        local burnt_rate = {0.33, 0.2, 0, 0}
-        local burnt_punish = {-0.33, -0.25, 0, 0}
+        local burnt_rate = {0.25, 0.2, 0, 0}
+        local burnt_punish = {-0.33, -0.2, 0, 0}
 
         local type = "normal"
         local level = 4
@@ -102,7 +102,7 @@ AddComponentPostInit("stewer", function (self)
         local cannot_stew_amakumo = has_amakumo_spice and food_isnot_raidenfood
 
         local explode_rate = {0.05, 0, 0, 0}
-        local fail_rate = {0.33, 0.25, 0.2, 0} 
+        local fail_rate = {0.25, 0.2, 0.15, 0} 
         local time_rate = {2, 1.5, 1.15, 1}
 
         local type = "normal"
