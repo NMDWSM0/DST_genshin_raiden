@@ -153,6 +153,19 @@ local function onspiceruse(inst, doer)
     return true
 end
 
+local function ongiveexpuse(inst, doer)
+    if doer.components.cookunlocker == nil then
+        return false
+    end
+
+    doer.components.cookunlocker.firepit_experience = inst.firepit_experience
+    doer.components.cookunlocker.cookpot_experience = inst.cookpot_experience
+    doer.components.cookunlocker.mastercook_experience = inst.mastercook_experience
+    doer.components.cookunlocker:CheckLevel()
+    onuse(inst)
+    return false
+end
+
 ----------------------------------------------------------
 
 local function onputininventory(inst)
@@ -163,6 +176,22 @@ local function onputininventory(inst)
     stopclosingsounds(inst)
     inst.AnimState:PlayAnimation("idle")
     inst.SoundEmitter:KillSound("idlesound")
+end
+
+--保存
+local function OnSave(inst, data)
+	data.firepit_experience = inst.firepit_experience or 0
+    data.cookpot_experience = inst.cookpot_experience or 0
+    data.mastercook_experience = inst.mastercook_experience or 0
+end
+
+--读取
+local function OnLoad(inst, data)
+    if data then
+        inst.firepit_experience = data.firepit_experience or 0
+        inst.cookpot_experience = data.cookpot_experience or 0
+        inst.mastercook_experience = data.mastercook_experience or 0
+    end
 end
 
 local function MakeRaidenCookbook(name, onusefn)
@@ -209,8 +238,13 @@ local function MakeRaidenCookbook(name, onusefn)
 	    inst.components.inventoryitem:ChangeImageName(name)
 
         inst:AddComponent("finiteuses")
-        inst.components.finiteuses:SetMaxUses(5)
-        inst.components.finiteuses:SetUses(5)
+        if name == "book_giveexp" then
+            inst.components.finiteuses:SetMaxUses(1)
+            inst.components.finiteuses:SetUses(1)
+        else
+            inst.components.finiteuses:SetMaxUses(5)
+            inst.components.finiteuses:SetUses(5)
+        end
         inst.components.finiteuses:SetOnFinished(inst.Remove)
     
         inst:AddComponent("fuel")
@@ -223,6 +257,11 @@ local function MakeRaidenCookbook(name, onusefn)
     
         inst.onuse = onusefn
 
+        if name == "book_giveexp" then
+            inst.OnSave = OnSave
+	        inst.OnLoad = OnLoad
+        end
+
         return inst
     end
 
@@ -231,4 +270,5 @@ end
 
 return MakeRaidenCookbook("book_firepit", onfirepituse),
     MakeRaidenCookbook("book_cookpot", oncookpotuse),
-    MakeRaidenCookbook("book_spicer", onspiceruse)
+    MakeRaidenCookbook("book_spicer", onspiceruse),
+    MakeRaidenCookbook("book_giveexp", ongiveexpuse)

@@ -37,6 +37,10 @@ local CookUnlocker = Class(function(self, inst)
             inst:RemoveTag("spicer_study")
         end
     end)
+
+    self.inst:ListenForEvent("ms_playerreroll", function() 
+        self:ReturnIngridents()
+    end)
 end)
 
 --firepit_level 使用火烤的技能等级：
@@ -225,6 +229,26 @@ function CookUnlocker:OnLoad(data)
 
     if self.spicer_level == 1 then
         self.inst:AddTag("masterchef")
+    end
+end
+
+function CookUnlocker:ReturnIngridents()
+    local inst = self.inst
+    local x, y, z = inst.Transform:GetWorldPosition()
+    
+    local inv = SpawnPrefab("book_giveexp")
+    if inv ~= nil then
+        inv.firepit_experience = self.firepit_experience
+        inv.cookpot_experience = self.cookpot_experience
+        inv.mastercook_experience = self.mastercook_experience
+        if inv.Physics ~= nil then
+            local speed = 2 + math.random()
+            local angle = math.random() * 2 * PI
+            inv.Physics:Teleport(x, y + 1, z)
+            inv.Physics:SetVel(speed * math.cos(angle), speed * 3, speed * math.sin(angle))
+        else
+            inv.Transform:SetPosition(x, y, z)
+        end
     end
 end
 

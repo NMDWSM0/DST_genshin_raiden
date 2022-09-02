@@ -314,6 +314,9 @@ if TUNING.LANGUAGE_GENSHIN_RAIDEN == "sc" then
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.BOOK_SPICER = "有种神秘的力量，能教会人做饭，甚至还能感受到一丝雷元素？"
     STRINGS.RECIPE_DESC.BOOK_SPICER = "制作一本能教人调和香料的书"
 
+    STRINGS.NAMES.BOOK_GIVEEXP = "超级经验书"
+    STRINGS.CHARACTERS.GENERIC.DESCRIBE.BOOK_GIVEEXP = "阅读这本书，你将找回所有丢失的烹饪经验"
+
     STRINGS.NAMES.AMAKUMO_FRUIT = "天云草实"
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.AMAKUMO_FRUIT = "天云草结成的果实，贴在耳畔能听见微弱的电流声。"
 
@@ -610,6 +613,9 @@ else
     STRINGS.NAMES.BOOK_SPICER = "Course of Spicing"
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.BOOK_SPICER = "Have a miraculous power.Teach readers cooking.And can even feel Electro element?"
     STRINGS.RECIPE_DESC.BOOK_SPICER = "Craft a book to teach readers spicing"
+
+    STRINGS.NAMES.BOOK_GIVEEXP = "Super EXP Book"
+    STRINGS.CHARACTERS.GENERIC.DESCRIBE.BOOK_GIVEEXP = "reading this book enbales you to master all the cooking experience you've lost"
 
     STRINGS.NAMES.AMAKUMO_FRUIT = "Amakumo Fruit"
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.AMAKUMO_FRUIT = "The fruit of the Amakumo Grass.Can hear it crackling with a tiny current if hold it up to the ear."
