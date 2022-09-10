@@ -26,7 +26,7 @@ STRINGS.CHARACTERS.RAIDEN_SHOGUN = require "speech_wilson"
 
 if TUNING.LANGUAGE_GENSHIN_RAIDEN == "sc" then
     --基本描述
-    STRINGS.CHARACTER_TITLES.raiden_shogun = "尘世七执政•雷之神"
+    STRINGS.CHARACTER_TITLES.raiden_shogun = "尘世七执政·雷之神"
     STRINGS.CHARACTER_NAMES.raiden_shogun = "雷电将军"
     STRINGS.CHARACTER_DESCRIPTIONS.raiden_shogun = "其身为御建鸣神主尊大御所大人\n许稻妻人民以亘古不变之【永恒】\n"
     STRINGS.CHARACTER_QUOTES.raiden_shogun = "\"此身即是尘世最为殊胜尊贵之身\n应持天下之大权。\""
@@ -54,19 +54,19 @@ if TUNING.LANGUAGE_GENSHIN_RAIDEN == "sc" then
         },
         content = {
             "诸愿百眼之轮能更加迅速地积攒愿力。元素类型为雷元素的角色施放元素爆发后，积攒的愿力提升80%；其他元素类型的角色施放元素爆发后，积攒的愿力提升20%。",
-            "奥义•梦想真说的梦想一刀与梦想一心状态下的雷电将军的攻击将无视敌人60%的防御力。",
-            "奥义•梦想真说的技能等级提高3级。\n至多提升至15级。",
-            "奥义•梦想真说施加的梦想一心状态结束后，附近的队伍中所有角色的攻击力提升30%，持续10秒。",
-            "神变•恶曜开眼的技能等级提高3级。\n至多提升至15级。",
-            "处于奥义•梦想真说施加的梦想一心状态下时，雷电将军的元素爆发伤害命中敌人时，使附近的队伍中所有角色元素爆发的冷却时间缩短1秒。该效果每1秒至多触发一次，在持续期间内至多触发5次。",
+            "奥义·梦想真说的梦想一刀与梦想一心状态下的雷电将军的攻击将无视敌人60%的防御力。",
+            "奥义·梦想真说的技能等级提高3级。\n至多提升至15级。",
+            "奥义·梦想真说施加的梦想一心状态结束后，附近的队伍中所有角色的攻击力提升30%，持续10秒。",
+            "神变·恶曜开眼的技能等级提高3级。\n至多提升至15级。",
+            "处于奥义·梦想真说施加的梦想一心状态下时，雷电将军的元素爆发伤害命中敌人时，使附近的队伍中所有角色元素爆发的冷却时间缩短1秒。该效果每1秒至多触发一次，在持续期间内至多触发5次。",
         },
     }
 
     TUNING.RAIDEN_TALENTS_DESC = {
 		titlename = {
-            "普通攻击•源流",
-            "神变•恶曜开眼",
-            "奥义•梦想真说",
+            "普通攻击·源流",
+            "神变·恶曜开眼",
+            "奥义·梦想真说",
             "万千的愿望",
             "殊胜之御体",
             "天下名物狩",
@@ -81,7 +81,7 @@ if TUNING.LANGUAGE_GENSHIN_RAIDEN == "sc" then
             {
                 {str = "雷电将军展开净土的一角，对周围的敌人造成雷元素伤害，为队伍中附近的所有角色授以「雷罚恶曜之眼」。", title = false},
                 {str = "雷罚恶曜之眼", title = true},
-                {str = "•获授雷罚恶曜之眼的角色的攻击对敌人造成伤害时，雷罚恶曜之眼会进行协同攻击，在敌人的位置造成雷元素范围伤害。\n•获授雷罚恶曜之眼的角色在持续期间内，元素爆发造成的伤害获得提升，提升程度基于元素爆发的元素能量。\n每个队伍的雷罚恶曜之眼，每0.9秒至多进行一次协同攻击。\n由队伍中自己的角色以外的角色触发的协同攻击造成的伤害为原本的20%。", title = false},
+                {str = "·获授雷罚恶曜之眼的角色的攻击对敌人造成伤害时，雷罚恶曜之眼会进行协同攻击，在敌人的位置造成雷元素范围伤害。\n·获授雷罚恶曜之眼的角色在持续期间内，元素爆发造成的伤害获得提升，提升程度基于元素爆发的元素能量。\n每个队伍的雷罚恶曜之眼，每0.9秒至多进行一次协同攻击。\n由队伍中自己的角色以外的角色触发的协同攻击造成的伤害为原本的20%。", title = false},
             },
             {
                 {str = "汇聚万千真言，竭尽诸愿百眼之愿力，斩出粉碎一切诅咒的梦想一刀，造成雷元素范围伤害；并在接下来的一段时间内，使用「梦想一心」战斗。依据施放时消耗的诸愿百眼之轮的愿力层数，增加梦想一刀与梦想一心的攻击造成的伤害。", title = false},
@@ -94,7 +94,7 @@ if TUNING.LANGUAGE_GENSHIN_RAIDEN == "sc" then
                 {str = "队伍中附近的角色获得元素晶球或元素微粒时，会为诸愿百眼之轮积攒2层愿力。\n该效果每3秒至多触发一次。" , title = false},
             },
             {
-                {str = "基于元素充能效率超过100%的部分，每1%使雷电将军获 得下列效果：\n•梦想一心状态提供的元素能量恢复提高0.6%；\n•雷元素伤害加成提升0.4%。", title = false},
+                {str = "基于元素充能效率超过100%的部分，每1%使雷电将军获 得下列效果：\n·梦想一心状态提供的元素能量恢复提高0.6%；\n·雷元素伤害加成提升0.4%。", title = false},
             },
             {
                 {str = "制造单手剑和长柄武器时，返还50%的材料。", title = false},
@@ -260,40 +260,40 @@ if TUNING.LANGUAGE_GENSHIN_RAIDEN == "sc" then
 
     --物品描述
     STRINGS.NAMES.ENGULFINGLIGHTNING = "薙草之稻光"
-    STRINGS.CHARACTERS.GENERIC.DESCRIBE.ENGULFINGLIGHTNING = "用于【斩草】的薙刀。对向此物之军势,也会如苇草般倒下吧..."
-    STRINGS.RECIPE_DESC.ENGULFINGLIGHTNING = "用于【斩草】的薙刀"
+    STRINGS.CHARACTERS.GENERIC.DESCRIBE.ENGULFINGLIGHTNING = "用于「斩草」的薙刀。对向此物之军势,也会如苇草般倒下吧..."
+    STRINGS.RECIPE_DESC.ENGULFINGLIGHTNING = "用于「斩草」的薙刀"
 	TUNING.WEAPONEFFECT_ENGULFINGLIGHTNING = {
-        "非时之梦•常世灶食\n•攻击力获得提升,提升程度相当于元素充能效率超出100%部分的28%,至多通过这种方式提升80%。施放元素爆发后的12秒内,元素充能效率提升30%。",
-        "非时之梦•常世灶食\n•攻击力获得提升,提升程度相当于元素充能效率超出100%部分的35%,至多通过这种方式提升90%。施放元素爆发后的12秒内,元素充能效率提升35%。",
-        "非时之梦•常世灶食\n•攻击力获得提升,提升程度相当于元素充能效率超出100%部分的42%,至多通过这种方式提升100%。施放元素爆发后的12秒内,元素充能效率提升40%。",
-        "非时之梦•常世灶食\n•攻击力获得提升,提升程度相当于元素充能效率超出100%部分的49%,至多通过这种方式提升110%。施放元素爆发后的12秒内,元素充能效率提升45%。",
-        "非时之梦•常世灶食\n•攻击力获得提升,提升程度相当于元素充能效率超出100%部分的56%,至多通过这种方式提升120%。施放元素爆发后的12秒内,元素充能效率提升50%。",
+        "非时之梦·常世灶食\n·攻击力获得提升,提升程度相当于元素充能效率超出100%部分的28%,至多通过这种方式提升80%。施放元素爆发后的12秒内,元素充能效率提升30%。",
+        "非时之梦·常世灶食\n·攻击力获得提升,提升程度相当于元素充能效率超出100%部分的35%,至多通过这种方式提升90%。施放元素爆发后的12秒内,元素充能效率提升35%。",
+        "非时之梦·常世灶食\n·攻击力获得提升,提升程度相当于元素充能效率超出100%部分的42%,至多通过这种方式提升100%。施放元素爆发后的12秒内,元素充能效率提升40%。",
+        "非时之梦·常世灶食\n·攻击力获得提升,提升程度相当于元素充能效率超出100%部分的49%,至多通过这种方式提升110%。施放元素爆发后的12秒内,元素充能效率提升45%。",
+        "非时之梦·常世灶食\n·攻击力获得提升,提升程度相当于元素充能效率超出100%部分的56%,至多通过这种方式提升120%。施放元素爆发后的12秒内,元素充能效率提升50%。",
     }
 
     STRINGS.NAMES.FAVONIUSLANCE = "西风长枪"
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.FAVONIUSLANCE = "西风骑士团的制式长枪。枪杆直挺，枪尖轻风流溢。"
     STRINGS.RECIPE_DESC.FAVONIUSLANCE = "西风骑士团的制式长枪"
 	TUNING.WEAPONEFFECT_FAVONIUSLANCE = {
-        "顺风而行\n•攻击造成暴击时，有60%的概率产生少量元素微粒。能为角色恢复6点元素能量。该效果每12秒只能触发一次。",
-        "顺风而行\n•攻击造成暴击时，有70%的概率产生少量元素微粒。能为角色恢复6点元素能量。该效果每10.5秒只能触发一次。",
-        "顺风而行\n•攻击造成暴击时，有80%的概率产生少量元素微粒。能为角色恢复6点元素能量。该效果每9秒只能触发一次。",
-        "顺风而行\n•攻击造成暴击时，有90%的概率产生少量元素微粒。能为角色恢复6点元素能量。该效果每7.5秒只能触发一次。",
-        "顺风而行\n•攻击造成暴击时，有100%的概率产生少量元素微粒。能为角色恢复6点元素能量。该效果每6秒只能触发一次。",
+        "顺风而行\n·攻击造成暴击时，有60%的概率产生少量元素微粒。能为角色恢复6点元素能量。该效果每12秒只能触发一次。",
+        "顺风而行\n·攻击造成暴击时，有70%的概率产生少量元素微粒。能为角色恢复6点元素能量。该效果每10.5秒只能触发一次。",
+        "顺风而行\n·攻击造成暴击时，有80%的概率产生少量元素微粒。能为角色恢复6点元素能量。该效果每9秒只能触发一次。",
+        "顺风而行\n·攻击造成暴击时，有90%的概率产生少量元素微粒。能为角色恢复6点元素能量。该效果每7.5秒只能触发一次。",
+        "顺风而行\n·攻击造成暴击时，有100%的概率产生少量元素微粒。能为角色恢复6点元素能量。该效果每6秒只能触发一次。",
     }
 
-    STRINGS.NAMES.THECATCH = "【渔获】"
+    STRINGS.NAMES.THECATCH = "「渔获」"
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.THECATCH = "在久远的过去，曾经闻名稻妻的大盗爱用的枪。"
     STRINGS.RECIPE_DESC.THECATCH = "在久远的过去，曾经闻名稻妻的大盗爱用的枪"
 	TUNING.WEAPONEFFECT_THECATCH = {
-        "船歌\n•元素爆发造成的伤害提升16%，元素爆发的暴击率提升6%。",
-        "船歌\n•元素爆发造成的伤害提升20%，元素爆发的暴击率提升7.5%。",
-        "船歌\n•元素爆发造成的伤害提升24%，元素爆发的暴击率提升9%。",
-        "船歌\n•元素爆发造成的伤害提升28%，元素爆发的暴击率提升10.5%。",
-        "船歌\n•元素爆发造成的伤害提升32%，元素爆发的暴击率提升12%。",
+        "船歌\n·元素爆发造成的伤害提升16%，元素爆发的暴击率提升6%。",
+        "船歌\n·元素爆发造成的伤害提升20%，元素爆发的暴击率提升7.5%。",
+        "船歌\n·元素爆发造成的伤害提升24%，元素爆发的暴击率提升9%。",
+        "船歌\n·元素爆发造成的伤害提升28%，元素爆发的暴击率提升10.5%。",
+        "船歌\n·元素爆发造成的伤害提升32%，元素爆发的暴击率提升12%。",
     }
     STRINGS.NAMES.AKO_SAKE_VESSEL = "赤穗酒枡"
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.AKO_SAKE_VESSEL = "过去称霸清籁地方的赤穗百目鬼一众爱用的酒具"
-    STRINGS.RECIPE_DESC.AKO_SAKE_VESSEL = "【渔获】专用的精炼道具"
+    STRINGS.RECIPE_DESC.AKO_SAKE_VESSEL = "「渔获」专用的精炼道具"
 
     STRINGS.NAMES.RAIDEN_CONSTELLATION_STAR = "雷电将军的命星"
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.RAIDEN_CONSTELLATION_STAR = "雷电将军的命之座激活素材"
@@ -380,7 +380,7 @@ else
             {
                 {str = "The Raiden Shogun unveils a shard of her Euthymia, dealing Electro DMG to nearby opponents, and granting nearby party members the Eye of Stormy Judgment.", title = false},
                 {str = "Eye of Stormy Judgement", title = true},
-                {str = "•When characters with this buff attack and deal DMG to opponents, the Eye will unleash a coordinated attack, dealing AoE Electro DMG at the opponent's position.\n•Characters who gain the Eye of Stormy Judgment will have their Elemental Burst DMG increased based on the Energy Cost of the Elemental Burst during the Eye's duration.\nThe Eye can initiate one coordinated attack every 0.9s per party.\nCoordinated attacks generated by characters not controlled by you deal 20% of the normal DMG.", title = false},
+                {str = "·When characters with this buff attack and deal DMG to opponents, the Eye will unleash a coordinated attack, dealing AoE Electro DMG at the opponent's position.\n·Characters who gain the Eye of Stormy Judgment will have their Elemental Burst DMG increased based on the Energy Cost of the Elemental Burst during the Eye's duration.\nThe Eye can initiate one coordinated attack every 0.9s per party.\nCoordinated attacks generated by characters not controlled by you deal 20% of the normal DMG.", title = false},
             },
             {
                 {str = "Gathering truths unnumbered and wishes uncounted, the Raiden Shogun unleashes the Musou no Hitotachi and deals AoE Electro DMG, using Musou Isshin in combat for a certain duration afterward. The DMG dealt by Musou no Hitotachi and Musou Isshin's attacks will be increased based on the number of Chakra Desiderata's Resolve stacks consumed when this skill is used.", title = false},
@@ -393,7 +393,7 @@ else
                 {str = "When nearby party members gain Elemental Orbs or Particles, Chakra Desiderata gains 2 Resolve stacks. This effect can occur once every 3s" , title = false},
             },
             {
-                {str = "Each 1% above 100% Energy Recharge that the Raiden Shogun possesses grants her:\n• 0.6% greater Energy restoration from Musou Isshin\n• 0.4% Electro DMG Bonus.", title = false},
+                {str = "Each 1% above 100% Energy Recharge that the Raiden Shogun possesses grants her:\n· 0.6% greater Energy restoration from Musou Isshin\n· 0.4% Electro DMG Bonus.", title = false},
             },
             {
                 {str = "When crafting Swords and Polearms, she will refund 50% of ingredients.", title = false},
@@ -563,33 +563,33 @@ else
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.ENGULFINGLIGHTNING = "A naginata used to \"cut grass.\" Any army that stands before this weapon will probably be likewise cut down..."
     STRINGS.RECIPE_DESC.ENGULFINGLIGHTNING = "A naginata used to \"cut grass.\""
 	TUNING.WEAPONEFFECT_ENGULFINGLIGHTNING = {
-        "Timeless Dream:Eternal Stove\n•ATK increased by 28% of Energy Recharge over the base 100%.You can gain a maximum bonus of 80% ATK.Gain 30% Energy Recharge for 12s after using an Elemental Burst.",
-        "Timeless Dream:Eternal Stove\n•ATK increased by 35% of Energy Recharge over the base 100%.You can gain a maximum bonus of 90% ATK.Gain 35% Energy Recharge for 12s after using an Elemental Burst.",
-        "Timeless Dream:Eternal Stove\n•ATK increased by 42% of Energy Recharge over the base 100%.You can gain a maximum bonus of 100% ATK.Gain 40% Energy Recharge for 12s after using an Elemental Burst.",
-        "Timeless Dream:Eternal Stove\n•ATK increased by 49% of Energy Recharge over the base 100%.You can gain a maximum bonus of 110% ATK.Gain 45% Energy Recharge for 12s after using an Elemental Burst.",
-        "Timeless Dream:Eternal Stove\n•ATK increased by 56% of Energy Recharge over the base 100%.You can gain a maximum bonus of 120% ATK.Gain 50% Energy Recharge for 12s after using an Elemental Burst.",
+        "Timeless Dream:Eternal Stove\n·ATK increased by 28% of Energy Recharge over the base 100%.You can gain a maximum bonus of 80% ATK.Gain 30% Energy Recharge for 12s after using an Elemental Burst.",
+        "Timeless Dream:Eternal Stove\n·ATK increased by 35% of Energy Recharge over the base 100%.You can gain a maximum bonus of 90% ATK.Gain 35% Energy Recharge for 12s after using an Elemental Burst.",
+        "Timeless Dream:Eternal Stove\n·ATK increased by 42% of Energy Recharge over the base 100%.You can gain a maximum bonus of 100% ATK.Gain 40% Energy Recharge for 12s after using an Elemental Burst.",
+        "Timeless Dream:Eternal Stove\n·ATK increased by 49% of Energy Recharge over the base 100%.You can gain a maximum bonus of 110% ATK.Gain 45% Energy Recharge for 12s after using an Elemental Burst.",
+        "Timeless Dream:Eternal Stove\n·ATK increased by 56% of Energy Recharge over the base 100%.You can gain a maximum bonus of 120% ATK.Gain 50% Energy Recharge for 12s after using an Elemental Burst.",
     }
 
     STRINGS.NAMES.FAVONIUSLANCE = "Favonius Lance"
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.FAVONIUSLANCE = "A polearm made in the style of the Knights of Favonius. Its shaft is straight, and its tip flows lightlty like the wind."
     STRINGS.RECIPE_DESC.FAVONIUSLANCE = "A polearm made in the style of the Knights of Favonius"
 	TUNING.WEAPONEFFECT_FAVONIUSLANCE = {
-        "Windfall\n•CRIT Hits have a 60% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character.Can only occur once every 12s.",
-        "Windfall\n•CRIT Hits have a 70% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character.Can only occur once every 10.5s.",
-        "Windfall\n•CRIT Hits have a 80% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character.Can only occur once every 9s.",
-        "Windfall\n•CRIT Hits have a 90% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character.Can only occur once every 7.5s.",
-        "Windfall\n•CRIT Hits have a 100% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character.Can only occur once every 6s.",
+        "Windfall\n·CRIT Hits have a 60% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character.Can only occur once every 12s.",
+        "Windfall\n·CRIT Hits have a 70% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character.Can only occur once every 10.5s.",
+        "Windfall\n·CRIT Hits have a 80% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character.Can only occur once every 9s.",
+        "Windfall\n·CRIT Hits have a 90% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character.Can only occur once every 7.5s.",
+        "Windfall\n·CRIT Hits have a 100% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character.Can only occur once every 6s.",
     }
 
     STRINGS.NAMES.THECATCH = "\"The Catch\""
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.THECATCH = "In the distant past, this was the beloved spear of a famed Inazuman bandit."
     STRINGS.RECIPE_DESC.THECATCH = "The beloved spear of a famed Inazuman bandit"
 	TUNING.WEAPONEFFECT_THECATCH = {
-        "Shanty\n•Increases Elemental Burst DMG by 16% and Elemental Burst CRIT Rate by 6%.",
-        "Shanty\n•Increases Elemental Burst DMG by 20% and Elemental Burst CRIT Rate by 7.5%.",
-        "Shanty\n•Increases Elemental Burst DMG by 24% and Elemental Burst CRIT Rate by 9%.",
-        "Shanty\n•Increases Elemental Burst DMG by 28% and Elemental Burst CRIT Rate by 10.5%.",
-        "Shanty\n•Increases Elemental Burst DMG by 32% and Elemental Burst CRIT Rate by 12%.",
+        "Shanty\n·Increases Elemental Burst DMG by 16% and Elemental Burst CRIT Rate by 6%.",
+        "Shanty\n·Increases Elemental Burst DMG by 20% and Elemental Burst CRIT Rate by 7.5%.",
+        "Shanty\n·Increases Elemental Burst DMG by 24% and Elemental Burst CRIT Rate by 9%.",
+        "Shanty\n·Increases Elemental Burst DMG by 28% and Elemental Burst CRIT Rate by 10.5%.",
+        "Shanty\n·Increases Elemental Burst DMG by 32% and Elemental Burst CRIT Rate by 12%.",
     }
     STRINGS.NAMES.AKO_SAKE_VESSEL = "Ako’s Sake Vessel"
     STRINGS.CHARACTERS.GENERIC.DESCRIBE.AKO_SAKE_VESSEL = "This was the favored liquor vessel of Ako Domeki,who once ruled over the Seirai region."
