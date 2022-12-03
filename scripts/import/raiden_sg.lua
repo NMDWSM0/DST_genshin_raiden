@@ -296,7 +296,7 @@ local raiden_chargeattack_client = State{
 --元素爆发
 local raiden_eleburst = State{
     name = "raiden_eleburst",
-    tags = { "attack", "notalking", "nointerrupt", "noyawn", "nosleep", "nofreeze", "nocurse", "temp_invincible", "pausepredict" },	
+    tags = { "attack", "notalking", "nointerrupt", "noyawn", "nosleep", "nofreeze", "nocurse", "temp_invincible", "no_gotootherstate", "pausepredict" },	
     
     onenter = function(inst)
         inst.components.locomotor:Stop()
@@ -389,7 +389,7 @@ local raiden_eleburst = State{
             inst.sg:RemoveStateTag("nocurse")
             inst.sg:RemoveStateTag("temp_invincible")
             inst.sg:RemoveStateTag("notalking")
-
+            inst.sg:RemoveStateTag("no_gotootherstate")
             inst.sg:RemoveStateTag("attack")
             inst.sg:AddStateTag("idle")
             inst.components.playercontroller:Enable(true)
@@ -400,11 +400,13 @@ local raiden_eleburst = State{
     events=
     {
         EventHandler("animqueueover", function(inst) 
+            inst.sg:RemoveStateTag("no_gotootherstate")
             inst.sg:GoToState("idle")                                    
         end),
     },  
 
     ontimeout = function(inst)
+        inst.sg:RemoveStateTag("no_gotootherstate")
         inst.sg:RemoveStateTag("attack")
         inst.sg:AddStateTag("idle")	   
         inst.components.playercontroller:Enable(true)         		
@@ -430,7 +432,7 @@ local raiden_eleburst = State{
 
 local raiden_eleburst_client = State{
     name = "raiden_eleburst",
-    tags = { "attack", "notalking", "nointerrupt", "noyawn", "nosleep", "nofreeze", "nocurse", "temp_invincible" },	
+    tags = { "attack", "notalking", "nointerrupt", "noyawn", "nosleep", "nofreeze", "nocurse", "temp_invincible", "no_gotootherstate" },	
     
     onenter = function(inst)
         inst.components.locomotor:Stop()
@@ -456,7 +458,7 @@ local raiden_eleburst_client = State{
             inst.sg:RemoveStateTag("nocurse")
             inst.sg:RemoveStateTag("temp_invincible")
             inst.sg:RemoveStateTag("notalking")
-
+            inst.sg:RemoveStateTag("no_gotootherstate")
             inst.sg:RemoveStateTag("attack")
             inst.sg:AddStateTag("idle")
             inst.components.playercontroller:Enable(true)
@@ -466,11 +468,13 @@ local raiden_eleburst_client = State{
     events=
     {
         EventHandler("animqueueover", function(inst) 
+            inst.sg:RemoveStateTag("no_gotootherstate")
             inst.sg:GoToState("idle")                                    
         end),
     },  
 
     ontimeout = function(inst)
+        inst.sg:RemoveStateTag("no_gotootherstate")
         inst.sg:RemoveStateTag("attack")
         inst.sg:AddStateTag("idle")	   
         inst.components.playercontroller:Enable(true)         		
@@ -486,7 +490,7 @@ local raiden_eleburst_client = State{
 --元素战技
 local raiden_eleskill = State{
     name = "raiden_eleskill",
-    tags = { "attack", "notalking", "nointerrupt", "nosleep", "nofreeze", "nocurse", "temp_invincible", "pausepredict" },	
+    tags = { "attack", "notalking", "nointerrupt", "nosleep", "nofreeze", "nocurse", "temp_invincible", "no_gotootherstate", "pausepredict" },	
     
     onenter = function(inst)
         inst.components.locomotor:Stop()
@@ -553,6 +557,7 @@ local raiden_eleskill = State{
 		        facedirection = (mintarget:GetPosition() - Vector3(x, y, z)):Normalize()
                 local old_state = inst.components.combat.ignorehitrange
 				inst.components.combat.ignorehitrange = true
+---@diagnostic disable-next-line: param-type-mismatch
                 for k, v in pairs(ents) do
 			        local targetdirection = (v:GetPosition() - Vector3(x, y, z)):Normalize()
 			        if targetdirection:Dot(facedirection) >= 1/3 then
@@ -578,7 +583,7 @@ local raiden_eleskill = State{
             inst.sg:RemoveStateTag("nocurse")
             inst.sg:RemoveStateTag("temp_invincible")
             inst.sg:RemoveStateTag("notalking")
-
+            inst.sg:RemoveStateTag("no_gotootherstate")
             inst.sg:RemoveStateTag("attack")
             inst.sg:AddStateTag("idle")
             inst.components.playercontroller:Enable(true)
@@ -588,11 +593,13 @@ local raiden_eleskill = State{
     events=
     {
         EventHandler("animqueueover", function(inst) 
+            inst.sg:RemoveStateTag("no_gotootherstate")
             inst.sg:GoToState("idle")                                    
         end),
     },  
 
     ontimeout = function(inst)
+        inst.sg:RemoveStateTag("no_gotootherstate")
         inst.sg:RemoveStateTag("attack")
         inst.sg:AddStateTag("idle")	   
         inst.components.playercontroller:Enable(true)    		
@@ -614,7 +621,7 @@ local raiden_eleskill = State{
 
 local raiden_eleskill_client = State{
     name = "raiden_eleskill",
-    tags = { "attack", "notalking", "nointerrupt", "nosleep", "nofreeze", "nocurse", "temp_invincible" },	
+    tags = { "attack", "notalking", "nointerrupt", "nosleep", "nofreeze", "nocurse", "temp_invincible", "no_gotootherstate" },	
     
     onenter = function(inst)
         inst.components.locomotor:Stop()
@@ -640,7 +647,7 @@ local raiden_eleskill_client = State{
             inst.sg:RemoveStateTag("nocurse")
             inst.sg:RemoveStateTag("temp_invincible")
             inst.sg:RemoveStateTag("notalking")
-
+            inst.sg:RemoveStateTag("no_gotootherstate")
             inst.sg:RemoveStateTag("attack")
             inst.sg:AddStateTag("idle")
             inst.components.playercontroller:Enable(true)
@@ -650,11 +657,13 @@ local raiden_eleskill_client = State{
     events=
     {
         EventHandler("animqueueover", function(inst) 
+            inst.sg:RemoveStateTag("no_gotootherstate")
             inst.sg:GoToState("idle")                                    
         end),
     },  
 
     ontimeout = function(inst)
+        inst.sg:RemoveStateTag("no_gotootherstate")
         inst.sg:RemoveStateTag("attack")
         inst.sg:AddStateTag("idle")	   
         inst.components.playercontroller:Enable(true)         		
@@ -709,4 +718,15 @@ AddStategraphPostInit("wilson", function(sg)
             return old_attacked(inst, data)
         end
 	end
+end)
+
+AddGlobalClassPostConstruct("stategraph", "StateGraphInstance", function (self)
+    local old_GoToState = self.GoToState
+    function self:GoToState(...)
+        if self.tags and self.tags["no_gotootherstate"] then
+            print("Try to goto another state while in an unchanging state")
+            return
+        end
+        old_GoToState(self, ...)
+    end
 end)
