@@ -120,9 +120,11 @@ local function GenerateRaidenSpicedFoods(foods)
             local newdata = shallowcopy(fooddata)
             local spicename = string.lower(spicenameupper)
             if foodname == "wetgoop" then
+---@diagnostic disable-next-line: duplicate-set-field
                 newdata.test = function(cooker, names, tags) return names[spicename] end
                 newdata.priority = -10
             else
+---@diagnostic disable-next-line: duplicate-set-field
                 newdata.test = function(cooker, names, tags) return names[foodname] and names[spicename] end
                 newdata.priority = 100
             end
