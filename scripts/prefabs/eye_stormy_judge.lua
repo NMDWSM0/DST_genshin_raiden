@@ -5,7 +5,7 @@ local assets =
 
 local function HelpAttack(player, data)
     local inst = nil
-    if player.children == nil then
+    if player == nil or player.children == nil then
         return
     end
     for k, v in pairs(player.children) do
@@ -19,7 +19,7 @@ local function HelpAttack(player, data)
     end
 
     if data.damageresolved <= 0 or data.attackkey == "elementreaction" then  --无伤害或者元素反应不协同攻击（不然下雨天全自动打怪了属于是）
-        return 
+        return
     end
 
     if player.components.energyrecharge and math.random() < 0.25 then  --30%概率产一个微粒获得2点能量
@@ -28,6 +28,9 @@ local function HelpAttack(player, data)
     
     local target = data.target
     local master = inst.components.entitytracker:GetEntity("master")
+    if target == nil or master == nil then
+        return
+    end
     if not master:HasTag("eye_stormy_judge_cd") then
         master:AddTag("eye_stormy_judge_cd") --顺序不能改
         local old_state = master.components.combat.ignorehitrange
@@ -126,7 +129,7 @@ local function fn()
     inst:ListenForEvent("timerdone", function(inst) 
         inst.components.colourtweener:StartTween({0.6, 0.2, 0.7, 0}, 0.5)
         inst:DoTaskInTime(0.5, function(inst)
-            inst:Remove() 
+            inst:Remove()
         end)
     end)
 
