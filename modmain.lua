@@ -398,8 +398,9 @@ modimport("scripts/import/crownloot_prefabpostinit.lua")
 
 --------------------------------------
 
-
-
+--客机组件
+require "entityreplica"
+AddReplicableComponent("cookunlocker")
 
 --------------------------------------------------------------------------
 --初始物品

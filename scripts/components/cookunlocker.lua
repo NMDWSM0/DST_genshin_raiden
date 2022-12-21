@@ -1,3 +1,20 @@
+local function onfirepit_experience(self, val)
+    if self.inst.replica.cookunlocker then
+        self.inst.replica.cookunlocker._firepit_experience:set(val)
+    end
+end
+
+local function oncookpot_experience(self, val)
+    if self.inst.replica.cookunlocker then
+        self.inst.replica.cookunlocker._cookpot_experience:set(val)
+    end
+end
+
+local function onmastercook_experience(self, val)
+    if self.inst.replica.cookunlocker then
+        self.inst.replica.cookunlocker._mastercook_experience:set(val)
+    end
+end
 
 local CookUnlocker = Class(function(self, inst)
 	self.inst = inst
@@ -41,7 +58,13 @@ local CookUnlocker = Class(function(self, inst)
     self.inst:ListenForEvent("ms_playerreroll", function() 
         self:ReturnIngridents()
     end)
-end)
+end,
+nil,
+{
+    firepit_experience = onfirepit_experience,
+    cookpot_experience = oncookpot_experience,
+    mastercook_experience = onmastercook_experience,
+})
 
 --firepit_level 使用火烤的技能等级：
 --    0级：不可以使用火烤

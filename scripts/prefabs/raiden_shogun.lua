@@ -434,6 +434,61 @@ local common_postinit = function(inst)
 			TUNING.RAIDENSKILL_ELEBURST_SORT,
 		},
 	}
+	--资料相关信息
+	inst.genshin_profile_addition = {
+		STRINGS.CHARACTER_BIOS.raiden_shogun[3],
+		STRINGS.CHARACTER_BIOS.raiden_shogun[4],
+		{
+			title = STRINGS.CHARACTER_BIOS.raiden_shogun[5].title,
+			update_fn = function (player)
+				return player.components.cookunlocker and player.components.cookunlocker.firepit_experience
+					or (player.replica.cookunlocker and player.replica.cookunlocker._firepit_experience:value() or 0)
+			end,
+			format_fn = function (number)
+				local nextexp = -1
+				if number < 100 then
+					nextexp = 100
+				elseif number < 300 then
+					nextexp = 300
+				elseif number < 700 then
+					nextexp = 700
+				end
+				return nextexp > 0 and string.format("%d / %d", number, nextexp) or string.format("%d (maxlevel)", number)
+			end
+		},
+		{
+			title = STRINGS.CHARACTER_BIOS.raiden_shogun[6].title,
+			update_fn = function (player)
+				return player.components.cookunlocker and player.components.cookunlocker.cookpot_experience
+					or (player.replica.cookunlocker and player.replica.cookunlocker._cookpot_experience:value() or 0)
+			end,
+			format_fn = function (number)
+				local nextexp = -1
+				if number < 150 then
+					nextexp = 150
+				elseif number < 450 then
+					nextexp = 450
+				elseif number < 1050 then
+					nextexp = 1050
+				end
+				return nextexp > 0 and string.format("%d / %d", number, nextexp) or string.format("%d (maxlevel)", number)
+			end
+		},
+		{
+			title = STRINGS.CHARACTER_BIOS.raiden_shogun[7].title,
+			update_fn = function (player)
+				return player.components.cookunlocker and player.components.cookunlocker.mastercook_experience
+					or (player.replica.cookunlocker and player.replica.cookunlocker._mastercook_experience:value() or 0)
+			end,
+			format_fn = function (number)
+				local nextexp = -1
+				if number < 2000 then
+					nextexp = 2000
+				end
+				return nextexp > 0 and string.format("%d / %d", number, nextexp) or string.format("%d (maxlevel)", number)
+			end
+		}
+	}
 	
 	--添加显示血量组件和键位设置器
 	

@@ -42,6 +42,16 @@ if TUNING.LANGUAGE_GENSHIN_RAIDEN == "sc" then
 
     STRINGS.NAMES.RAIDEN_SHOGUN = "雷电将军"
 
+    STRINGS.CHARACTER_BIOS.raiden_shogun = {
+        { title = "生日", desc = "6月26日" },
+        { title = "最喜爱食物", desc = "团子牛奶" },
+        { title = "神之心", desc = "雷" },
+        { title = "命之座", desc = "天下人座" },
+        { title = "烤制经验", desc = "0 / 0" },
+        { title = "烹饪经验", desc = "0 / 0" },
+        { title = "高级经验", desc = "0 / 0" },
+    }
+
     --技能文本
     TUNING.RAIDEN_CONSTELLATION_DESC = {
         titlename = {
@@ -340,6 +350,16 @@ else
     }
 
     STRINGS.NAMES.RAIDEN_SHOGUN = "Raiden Shogun"
+
+    STRINGS.CHARACTER_BIOS.raiden_shogun = {
+        { title = "Birthday", desc = "June 26" },
+        { title = "Favorite Food", desc = "Dango Milk" },
+        { title = "Gnosis", desc = "Electro" },
+        { title = "Constellation", desc = "Imperatrix Umbrosa" },
+        { title = "Firepit Exp", desc = "0 / 0" },
+        { title = "Cookpot Exp", desc = "0 / 0" },
+        { title = "Master Exp", desc = "0 / 0" },
+    }
 
     --技能文本
     TUNING.RAIDEN_CONSTELLATION_DESC = {
