@@ -707,26 +707,27 @@ AddStategraphState("SGwilson_client", raiden_eleskill_client)
 AddStategraphPostInit("wilson", SGWilsonPostInit)
 AddStategraphPostInit("wilson_client", SGWilsonClientPostInit)
 
-AddStategraphPostInit("wilson", function(sg)
-    --雷电将军重击期间提升抗打断能力
-	if sg.events and sg.events.attacked then
-		local old_attacked = sg.events.attacked.fn
-		sg.events.attacked.fn = function(inst, data)
-			if inst.sg and inst.sg:HasStateTag("nointerrupt") and inst.sg:HasStateTag("chargeattack") and inst:HasTag("raiden_shogun") then
-                return
-            end
-            return old_attacked(inst, data)
-        end
-	end
-end)
+-- 这个不需要了，直接加nohitanim全抗打断
+-- AddStategraphPostInit("wilson", function(sg)
+--     --雷电将军重击期间提升抗打断能力
+-- 	if sg.events and sg.events.attacked then
+-- 		local old_attacked = sg.events.attacked.fn
+-- 		sg.events.attacked.fn = function(inst, data)
+-- 			if inst.sg and inst.sg:HasStateTag("nointerrupt") and inst.sg:HasStateTag("chargeattack") and inst:HasTag("raiden_shogun") then
+--                 return
+--             end
+--             return old_attacked(inst, data)
+--         end
+-- 	end
+-- end)
 
-AddGlobalClassPostConstruct("stategraph", "StateGraphInstance", function (self)
-    local old_GoToState = self.GoToState
-    function self:GoToState(...)
-        if self.tags and self.tags["no_gotootherstate"] then
-            print("Try to goto another state while in an unchanging state")
-            return
-        end
-        old_GoToState(self, ...)
-    end
-end)
+-- AddGlobalClassPostConstruct("stategraph", "StateGraphInstance", function (self)
+--     local old_GoToState = self.GoToState
+--     function self:GoToState(...)
+--         if self.tags and self.tags["no_gotootherstate"] then
+--             print("Try to goto another state while in an unchanging state")
+--             return
+--         end
+--         old_GoToState(self, ...)
+--     end
+-- end)

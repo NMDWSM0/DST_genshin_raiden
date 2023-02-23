@@ -109,7 +109,7 @@ local function constellation_func5(inst)
 	if inst.components.talents == nil then
 		return
     end
-	inst.components.talents:SetExtensionModifier(2, inst, 3, "raiden_constellation3")
+	inst.components.talents:SetExtensionModifier(2, inst, 3, "raiden_constellation5")
 end
 
 local function decreasecd(inst, player)	  --这个是6命效果，非常驻所以写这里就可以了
@@ -271,6 +271,8 @@ local function elementalburst_exitfn(inst)
 	end
 
 	inst:RemoveTag("stronggrip")
+	inst:RemoveTag("nohitanim")
+	inst.components.pinnable.canbepinned = true
 	inst.components.combat:SetRange(TUNING.DEFAULT_ATTACK_RANGE)
 	if inst.components.inventory.isexternallyinsulated then
 		inst.components.inventory.isexternallyinsulated:RemoveModifier(inst)
@@ -314,6 +316,8 @@ local function elementalburstfn(inst)
 	inst.exittask = inst:DoTaskInTime(TUNING.RAIDENSKILL_ELEBURST.DURATION + 2, elementalburst_exitfn)
 
 	inst:AddTag("stronggrip")
+	inst:AddTag("nohitanim")
+	inst.components.pinnable.canbepinned = false
 
 	inst:PushEvent("cast_elementalburst", {energycost = TUNING.RAIDENSKILL_ELEBURST.ENERGY, element = 4})
 	TheWorld:PushEvent("cast_elementalburst", {energycost = TUNING.RAIDENSKILL_ELEBURST.ENERGY, element = 4})
@@ -410,7 +414,7 @@ local common_postinit = function(inst)
 	--命之座相关信息
 	inst.constellation_path = "images/ui/constellation_raiden"
 	inst.constellation_positions = TUNING.RAIDEN_CONSTELLATION_POSITION
-	inst.constellation_decription = TUNING.RAIDEN_CONSTELLATION_DESC 
+	inst.constellation_decription = TUNING.RAIDEN_CONSTELLATION_DESC
 	inst.constellation_starname = "raiden_constellation_star"
 	--天赋相关信息
     inst.talents_path = "images/ui/talents_raiden"
@@ -564,8 +568,8 @@ local master_postinit = function(inst)
 
 	inst.components.foodaffinity:AddFoodtypeAffinity(FOODTYPE.GOODIES, 1.33)
 
-	inst.components.combat.overrideattackkeyfn = AttackkeyFn
-	inst.components.combat.overridestimulifn = StimuliFn
+	inst.components.combat:SetOverrideAttackkeyFn(AttackkeyFn)
+	inst.components.combat:SetOverrideStimuliFn(StimuliFn)
 	
     --监听器
 	inst:ListenForEvent("energyrecharge_change", ElectroBonusChange)
