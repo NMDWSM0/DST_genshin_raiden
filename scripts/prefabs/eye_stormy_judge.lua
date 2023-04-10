@@ -42,7 +42,7 @@ local function HelpAttack(player, data)
             dmg = dmg * 0.2
         end
         for k, v in pairs(ents) do
-            master.components.combat:DoAttack(v, nil, nil, 4, dmg, "elementalskill")
+            master.components.combat:DoAttack(v, nil, nil, 4, dmg, nil, nil, "elementalskill")
         end
         master.components.combat.ignorehitrange = old_state
         master:DoTaskInTime(0.9, function(master) 

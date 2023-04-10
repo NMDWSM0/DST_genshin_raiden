@@ -360,7 +360,7 @@ local raiden_eleburst = State{
             for k, v in pairs(ents) do
                 local targetdirection = (v:GetPosition() - Vector3(x, y, z)):Normalize()
                 if targetdirection:Dot(facedirection) > 0 then   
-                    inst.components.combat:DoAttack(v, nil, nil, 4, TUNING.RAIDENSKILL_ELEBURST.DMG[inst.components.talents:GetTalentLevel(3)] + inst.resolve_stack * TUNING.RAIDENSKILL_ELEBURST.RESOLVE_BONUS[inst.components.talents:GetTalentLevel(3)], "elementalburst") 
+                    inst.components.combat:DoAttack(v, nil, nil, 4, TUNING.RAIDENSKILL_ELEBURST.DMG[inst.components.talents:GetTalentLevel(3)] + inst.resolve_stack * TUNING.RAIDENSKILL_ELEBURST.RESOLVE_BONUS[inst.components.talents:GetTalentLevel(3)], nil, nil, "elementalburst") 
                 end
             end
             inst.components.combat.ignorehitrange = old_state
@@ -561,7 +561,7 @@ local raiden_eleskill = State{
                 for k, v in pairs(ents) do
 			        local targetdirection = (v:GetPosition() - Vector3(x, y, z)):Normalize()
 			        if targetdirection:Dot(facedirection) >= 1/3 then
-				        inst.components.combat:DoAttack(v, nil, nil, 4, TUNING.RAIDENSKILL_ELESKILL.DMG[inst.components.talents:GetTalentLevel(2)], "elementalskill")
+				        inst.components.combat:DoAttack(v, nil, nil, 4, TUNING.RAIDENSKILL_ELESKILL.DMG[inst.components.talents:GetTalentLevel(2)], nil, nil, "elementalskill")
 			        end
 		        end
                 inst.components.combat.ignorehitrange = old_state

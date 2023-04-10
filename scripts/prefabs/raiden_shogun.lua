@@ -189,7 +189,7 @@ local function CustomAttackFn(inst, target, instancemult, ischarge)
 		local old_state = inst.components.combat.ignorehitrange
         inst.components.combat.ignorehitrange = true
         for k, v in pairs(ents) do 
-            inst.components.combat:DoAttack(v, nil, nil, nil, instancemult) 
+            inst.components.combat:DoAttack(v, nil, nil, nil, instancemult)
         end
         inst.components.combat.ignorehitrange = old_state
 	else
@@ -278,8 +278,12 @@ local function elementalburst_exitfn(inst)
 		inst.components.inventory.isexternallyinsulated:RemoveModifier(inst)
 	end
 
-	local item = inst.replica.inventory:GetEquippedItem(EQUIPSLOTS.HANDS)
+	local item = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HANDS)
 	if item ~= nil and item.components.equippable then
+		-- function inst.components.inventory:Equip(item) has changed after Klei updated the game, which has caused the weapon 
+		-- being removed from hand if it was previously equipped.
+		inst.components.inventory:Unequip(item.components.equippable.equipslot)  -- add this to fix that
+		-- Thanks Anda and nyoomdoom for their work to find this and fix.
 		inst.components.inventory:Equip(item)
 	else
 		inst.AnimState:ClearOverrideSymbol("swap_object")
